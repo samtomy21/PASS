@@ -9,11 +9,23 @@ class Pass extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ncard',
+        'name',
+        'motive',
+        'place',
+        'observation',
+        'time',
+        'input',
+        'output',
+        'date'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    
+    /*
     public function charge()
     {
         return $this->belongsTo(Charge::class);
@@ -23,4 +35,5 @@ class Pass extends Model
     {
         return $this->belongsTo(Dependence::class);
     }
+    */
 }

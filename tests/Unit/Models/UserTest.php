@@ -12,6 +12,7 @@ class UserTest extends TestCase
     public function test_has_many_users(): void
     {
         $user = new User;
+        
         $this->assertInstanceOf(Collection::class, $user->passes);
     }
 }

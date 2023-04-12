@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('passes', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('charge_id');
-            $table->unsignedBigInteger('dependence_id');
+            //$table->unsignedBigInteger('charge_id');
+            //$table->unsignedBigInteger('dependence_id');
             $table->unsignedBigInteger('user_id');
 
             $table->string('ncard');
@@ -30,8 +30,8 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreign('charge_id')->references('id')->on('charges');
-            $table->foreign('dependence_id')->references('id')->on('dependences');
+            //$table->foreign('charge_id')->references('id')->on('charges');
+            //$table->foreign('dependence_id')->references('id')->on('dependences');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

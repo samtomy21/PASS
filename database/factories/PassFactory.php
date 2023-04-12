@@ -20,8 +20,8 @@ class PassFactory extends Factory
     public function definition(): array
     {
         return [
-            'charge_id' => Charge::factory(),
-            'dependence_id' => Dependence::factory(),
+            //'charge_id' => Charge::factory(),
+            //'dependence_id' => Dependence::factory(),
             'user_id' => User::factory(),
 
             'ncard' => $this->faker->randomDigitNot(6),

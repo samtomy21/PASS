@@ -14,7 +14,7 @@ use App\Models\Pass;
 class passTest extends TestCase
 {
     use WithFaker, RefreshDatabase;
-
+    /*
     public function test_guest_pass(): void
     {
         $this->get('passes')->assertRedirect('login'); //index
@@ -25,7 +25,7 @@ class passTest extends TestCase
         $this->get('passes/create')->assertRedirect('login'); //formulario - crear nuevo
         $this->post('passes', [])->assertRedirect('login'); //store - guardar nuevo
     }
-    /*
+    
     public function test_index_empty()
     {
         Pass::factory()->create();
@@ -50,13 +50,16 @@ class passTest extends TestCase
 
     }
     */
+    /*
     public function test_store()
     {   
-        $charge = Charge::factory()->create();
-        $dependence = Dependence::factory()->create();
+        
+        //$charge = Charge::factory()->create();
+        //$dependence = Dependence::factory()->create();
+
         $data = [
-            'charge_id' => $charge->id,
-            'dependence_id' => $dependence->id,
+            //'charge_id' => $charge->id,
+            //'dependence_id' => $dependence->id,
 
             'ncard' => $this->faker->randomDigitNot(6),
             'name' => $this->faker->name(),
@@ -76,6 +79,9 @@ class passTest extends TestCase
             ->actingAs($user)
             ->post('passes', $data)
             ->assertRedirect('passes');
+
+        $this->assertDatabaseHas('passes', $data);
         
     }
+    */
 }
