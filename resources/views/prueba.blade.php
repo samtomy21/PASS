@@ -28,56 +28,63 @@
 
         <div class="opacity-80 h-px mb-8" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
         <div class="container px-20 w-full">
-            <div class="container px-auto">
-                <label class="block text-xs">Nombre: </label>
-                <input type="text" name="" class="rounded border-gray-500 w-full mb-4" placeholder="Juanito Perez">
+            <div class="flex justify content-center">
+                <div class="container px-auto items-center">
+                    <label class="block text-xs">Nombre: </label>
+                    <input type="text" name="" class="rounded border-gray-500 w-full mb-4" placeholder="Juanito Perez">
 
-                <label class="block text-xs">Cargo: </label>
-                <input type="text" name="" class="rounded border-gray-500 w-full mb-4" placeholder="Presidente">
+                    <label class="block text-xs">Cargo: </label>
+                    <input type="text" name="" class="rounded border-gray-500 w-full mb-4" placeholder="Presidente">
 
-                <button class="relative flex justify-center items-center bg-white border focus:outline-none text-gray-600 rounded ring-gray-500 group" id="menu-dep">
-                    <p class="px-5">Dropdown</p>
-                    <span class="border-l p-2 bg-gray-100">
-                    <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z" clip-rule="evenodd" />
-                    </svg>
-                    </span>
-                    <div class="absolute hidden group-focus:block top-full min-w-full w-max bg-white mt-1 rounded">
-                        <ul class="text-left border rounded">
-                            <li class="px-4 py-1 hover:bg-gray-100 border-b">Depd 1</li>
-                            <li class="px-4 py-1 hover:bg-gray-100 border-b">Depd 2</li>
-                            <li class="px-4 py-1 hover:bg-gray-100 border-b">Depd 3</li>
-                            <li class="px-4 py-1 hover:bg-gray-100 border-b">Depd 4</li>
-                            <li class="px-4 py-1 hover:bg-gray-100 border-b">Depd 5</li>
-                        </ul>
-                    </div>
-                </button>
+                    <label class="block text-xs">Dropdown</label>
+                    <button class="relative flex justify-between items-center bg-white border border-gray-500 focus:outline-none text-gray-600 rounded ring-gray-900 w-full group mb-4" id="menu-dep">
+                        <p class="px-3">Dropdown</p>
+                        <span class="border-l p-2 bg-gray-100 rounded ">
+                            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <div class="absolute hidden group-focus:block top-full min-w-full w-max bg-white mt-1 rounded">
+                            <ul class="text-left border rounded">
+                                <li class="px-4 py-1 hover:bg-gray-100 border-b">Depd 1</li>
+                                <li class="px-4 py-1 hover:bg-gray-100 border-b">Depd 2</li>
+                                <li class="px-4 py-1 hover:bg-gray-100 border-b">Depd 3</li>
+                                <li class="px-4 py-1 hover:bg-gray-100 border-b">Depd 4</li>
+                                <li class="px-4 py-1 hover:bg-gray-100 border-b">Depd 5</li>
+                            </ul>
+                        </div>
+                    </button>
 
-                <label class="block text-xs">Dependencia: </label>
-                <input type="text" name="" class="rounded border-gray-500 w-full mb-4" placeholder="Otic">
+                    <label class="block text-xs">Dependencia: </label>
+                    <input type="text" name="" class="rounded border-gray-500 w-full mb-4" placeholder="Otic">
 
-                <label class="block text-xs">Motivo: </label>
-                <input type="text" name="" class="rounded border-gray-500 w-full mb-4" placeholder="Salud">
+                    <label class="block text-xs">Motivo: </label>
+                    <input type="text" name="" class="rounded border-gray-500 w-full mb-4" placeholder="Salud">
 
-                <label class="block text-xs">Lugar: </label>
-                <input type="text" name="" class="rounded border-gray-500 w-full mb-4" placeholder="Aqui ps donde mas">
+                    <label class="block text-xs">Lugar: </label>
+                    <input type="text" name="" class="rounded border-gray-500 w-full mb-4" placeholder="Aqui ps donde mas">
 
+                </div>
+                <div class="container flex px-auto justify-center items-center rounded p-5">
+                    <img src="{{ asset('images/logo-otic4.png') }}" class="rounded border-gray-500 h-full">
+                </div>
             </div>
+
             <div class="opacity-80 h-px mb-8" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
-            <div class="flex justify-center px-auto w-full">
-                <div class="container items-center w-auto py-2">
+            <div class="flex items-center px-auto w-full">
+                <div class="container w-full py-2">
                     <label class="block text-xs px-1">Tiempo autorizado por su superior: </label>
-                    <input type="text" name="" class="rounded border-gray-500 w-full my-4" placeholder="no vuelvas">
+                    <input type="text" name="" class="rounded border-gray-500 w-1/2 my-2" placeholder="no vuelvas">
 
                     <label class="block text-xs px-1">Hora de salida: </label>
-                    <input type="time" name="" class="rounded border-gray-500 w-full my-4">
+                    <input type="time" name="" class="rounded border-gray-500 w-1/2 my-2">
 
                     <label class="block text-xs px-1">Hora de retorno: </label>
-                    <input type="time" name="" class="rounded border-gray-500 w-full my-4">
+                    <input type="time" name="" class="rounded border-gray-500 w-1/2 my-2">
                 </div>
-                <div class="container items-center w-full py-2 pl-10">
+                <div class="container justify-center items-center w-full py-2 pl-10">
                     <label class="block text-xs px-1">Observaciones: </label>
-                    <textarea name="" rows="5" class="rounded border-gray-500 w-full my-4">aqui vemos como enviamos la informacion :v</textarea>
+                    <textarea name="" rows="5" class="rounded border-gray-500 w-full my-2">aqui vemos como enviamos la informacion :v</textarea>
                 </div>
 
             </div>
