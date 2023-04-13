@@ -12,10 +12,10 @@ class Charge extends Model
     protected $fillable = [
         'name_charge'
     ];
-    /*
+    
     public function passes()
     {
         return $this->hasmany(Pass::class);
     }
-    */
+    
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PassController;
 use App\Http\Controllers\ChargeController;
+use App\Http\Controllers\DependenceController;
 
 Route::get('/', function () {
     return view('prueba');
@@ -21,4 +22,4 @@ Route::middleware([
 
 Route::resource('passes', PassController::class)->middleware('auth');
 Route::resource('charges', ChargeController::class)->middleware('auth');
-//Route::resource('dependences', App\Http\Controllers\PassController::class)->middleware('auth');
+Route::resource('dependences', DependenceController::class)->middleware('auth');

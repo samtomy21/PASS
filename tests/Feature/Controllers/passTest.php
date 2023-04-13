@@ -14,7 +14,7 @@ use App\Models\Pass;
 class passTest extends TestCase
 {
     use WithFaker, RefreshDatabase;
-    /*
+    
     public function test_guest_pass(): void
     {
         $this->get('passes')->assertRedirect('login'); //index
@@ -29,37 +29,51 @@ class passTest extends TestCase
     public function test_index_empty()
     {
         Pass::factory()->create();
+
         $user = User::factory()->create();
 
         $this
             ->actingAs($user)
             ->get('passes')
             ->assertStatus(200)
-            ->assertSee('No hay Permisos Creados');
+            ->assertSee('No has creado ningun permiso');
 
     }
-    
-    public function test_create()
-    {
+
+    public function test_index_with_data()
+    {   
         $user = User::factory()->create();
-        dd($user);
+        $pass = Pass::factory()->create(['user_id' => $user->id]);
+
+        //dd($pass);
+
         $this
             ->actingAs($user)
-            ->get('passes/create')
-            ->assertStatus(200);
-
+            ->get('passes')
+            ->assertStatus(200)
+            ->assertSee($pass->id)
+            ->assertSee($pass->charges_id)
+            ->assertSee($pass->dependences_id)
+            ->assertSee($pass->ncard)
+            ->assertSee($pass->name)
+            ->assertSee($pass->motive)
+            ->assertSee($pass->place)
+            ->assertSee($pass->obsercation)
+            ->assertSee($pass->time)
+            ->assertSee($pass->input)
+            ->assertSee($pass->output)
+            ->assertSee($pass->date);
     }
-    */
-    /*
+    
     public function test_store()
     {   
         
-        //$charge = Charge::factory()->create();
-        //$dependence = Dependence::factory()->create();
-
+        $charge = Charge::factory()->create();
+        $dependence = Dependence::factory()->create();
+        $user = User::factory()->create();
         $data = [
-            //'charge_id' => $charge->id,
-            //'dependence_id' => $dependence->id,
+            'charge_id' => $charge->id,
+            'dependence_id' => $dependence->id,
 
             'ncard' => $this->faker->randomDigitNot(6),
             'name' => $this->faker->name(),
@@ -73,15 +87,166 @@ class passTest extends TestCase
         ];
         //dd($data);
 
-        $user = User::factory()->create();
-        //dd($user);
+
         $this
             ->actingAs($user)
             ->post('passes', $data)
             ->assertRedirect('passes');
 
-        $this->assertDatabaseHas('passes', $data);
-        
+        $this->assertDatabaseHas('passes', $data);   
     }
-    */
+    public function test_updade()
+    {
+        $charge = Charge::factory()->create();
+        $dependence = Dependence::factory()->create();
+
+
+        $user = User::factory()->create();
+        $pass = Pass::factory()->create(['user_id' => $user->id] );//pass->user_id === $user_id
+
+        //dd($user->id, "  ", $pass->user_id); user_id = 1, "  ", $pass->user_id = 1
+        $data = [
+            'charge_id' => $charge->id,
+            'dependence_id' => $dependence->id,
+
+            'ncard' => $this->faker->randomDigitNot(6),
+            'name' => $this->faker->name(),
+            'motive' => $this->faker->sentence(),
+            'place' => $this->faker->secondaryAddress(),
+            'observation' => $this->faker->sentence(25),
+            'time' => $this->faker->time(),
+            'input' => $this->faker->time(),
+            'output' => $this->faker->time(),
+            'date' => $this->faker->date(),
+        ];
+
+        $this
+        ->actingAs($user)
+        ->put("passes/$pass->id", $data)
+        ->assertRedirect("passes/$pass->id/edit");
+        
+        $this->assertDatabaseHas('passes', $data);
+
+    }
+    
+    public function test_destroy()
+    {
+        $user = User::factory()->create();
+        $pass = Pass::factory()->create(['user_id' => $user->id]);
+
+        //dd($pass);
+
+        $this
+            ->actingAs($user)
+            ->delete("passes/$pass->id")
+            ->assertredirect('passes');
+
+        $this->assertDatabaseMissing('passes', [
+            'id' => $pass->id,
+            'charge_id' => $pass->charge_id,
+            'dependence_id' => $pass->dependence_id,
+            'ncard' => $pass->ncard,
+            'name' => $pass->name,
+            'motive' => $pass->motive,
+            'place' => $pass->place,
+            'observation' => $pass->observation,
+            'time' => $pass->time,
+            'input' => $pass->input,
+            'output' => $pass->output,
+            'date' => $pass->date,
+        ]);
+    }    
+
+    public function test_validate_store()
+    {   
+        $user = User::factory()->create();
+        $this
+            ->actingAs($user)
+            ->post('passes', [])
+            ->assertStatus(302)
+            ->assertSessionHasErrors([
+                'charge_id',
+                'dependence_id',
+                'ncard',
+                'name',
+                'motive',
+                'place',
+                'observation',
+                'time',
+                'input',
+                'output',
+                'date'
+            ]);  
+    }
+    
+    public function test_validate_updade()
+    {
+
+        $pass = Pass::factory()->create();//pass->user_id === $user_id
+        $user = User::factory()->create();
+
+        $this
+        ->actingAs($user)
+        ->put("passes/$pass->id", [])
+        ->assertStatus(302)
+        ->assertSessionHasErrors([
+            'charge_id',
+            'dependence_id',
+            'ncard',
+            'name',
+            'motive',
+            'place',
+            'observation',
+            'time',
+            'input',
+            'output',
+            'date'
+        ]);
+    }
+
+    public function test_updade_policy()
+    {
+        $charge = Charge::factory()->create();
+        $dependence = Dependence::factory()->create();
+
+        $user = User::factory()->create();
+        $pass = Pass::factory()->create();
+
+        //dd($pass);
+        $data = [
+            'charge_id' => $charge->id,
+            'dependence_id' => $dependence->id,
+
+            'ncard' => $this->faker->randomDigitNot(6),
+            'name' => $this->faker->name(),
+            'motive' => $this->faker->sentence(),
+            'place' => $this->faker->secondaryAddress(),
+            'observation' => $this->faker->sentence(25),
+            'time' => $this->faker->time(),
+            'input' => $this->faker->time(),
+            'output' => $this->faker->time(),
+            'date' => $this->faker->date(),
+        ];
+
+        //dd($user->id, "  ", $pass->user_id); //user->id =1,"  ", pass->user_id=2
+        $this
+        ->actingAs($user)
+        ->put("passes/$pass->id", $data)
+        ->assertStatus(403);
+
+    }
+
+    public function test_destroy_policy()
+    {
+        $user = User::factory()->create();
+        $pass = Pass::factory()->create();
+
+        //dd($user->id, "   ", $pass->user_id);// 2," ", 1
+
+        $this
+            ->actingAs($user)
+            ->delete("passes/$pass->id")
+            ->assertStatus(403);
+    }    
+
 }

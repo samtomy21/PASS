@@ -15,7 +15,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class PassTest extends TestCase
 {
     use RefreshDatabase;
-    /*
+    
     public function test_belongs_to_charge(): void
     {
         $pass = Pass::factory()->create();
@@ -28,7 +28,7 @@ class PassTest extends TestCase
 
         $this->assertInstanceOf(Dependence::class, $pass->dependence);
     }   
-    */
+    
     public function test_belongs_to_user(): void
     {
         $pass = Pass::factory()->create();

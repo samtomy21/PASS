@@ -10,6 +10,8 @@ class Pass extends Model
     use HasFactory;
 
     protected $fillable = [
+        'charge_id',
+        'dependence_id',
         'ncard',
         'name',
         'motive',
@@ -25,7 +27,7 @@ class Pass extends Model
     {
         return $this->belongsTo(User::class);
     }
-    /*
+    
     public function charge()
     {
         return $this->belongsTo(Charge::class);
@@ -35,5 +37,5 @@ class Pass extends Model
     {
         return $this->belongsTo(Dependence::class);
     }
-    */
+    
 }
