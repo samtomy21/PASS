@@ -12,7 +12,7 @@ class ChargeController extends Controller
     {
         
         return view('charges.index',[
-            'charges' => Charge::latest()->get(),
+            'charges' => Charge::latest('id')->get(),
         ]);
     }
 

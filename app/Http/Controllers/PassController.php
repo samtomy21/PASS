@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Charge;
+use App\Models\Dependence;
+
 use App\Models\Pass;
 
 
@@ -17,7 +20,7 @@ class PassController extends Controller
     public function index(Request $request)
     {
         return view('passes.index', [
-            'passes' => $request->user()->passes
+            'passes' => auth()->user()->passes
         ]);
     }
 
@@ -25,8 +28,11 @@ class PassController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    {   
+        $charges = Charge::all();
+        $dependences = Dependence::all();
+
+        return view('passes.create', compact('charges', 'dependences'));
     }
 
     /**
@@ -35,13 +41,12 @@ class PassController extends Controller
     public function store(Request $request, Pass $pass)
     {
         $request->validate([
-            'charge_id' => 'required',
-            'dependence_id' => 'required',
             'ncard' => 'required',
             'name' => 'required',
+            'charge_id' => 'required',
+            'dependence_id' => 'required',
             'motive' => 'required',
             'place' => 'required',
-            'observation'=> 'required',
             'time' => 'required',
             'input' => 'required',
             'output' => 'required',
@@ -56,17 +61,29 @@ class PassController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, Pass $pass)
     {
-        //
+        if($request->user()->id != $pass->user_id)
+        {
+            abort(403);
+        }
+        return view('passes.show', compact('pass'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, Pass $pass)
     {
-        //
+        if($request->user()->id != $pass->user_id)
+        {
+            abort(403);
+        }
+
+        $charges = Charge::all();
+        $dependences = Dependence::all();
+
+        return view('passes.edit', compact('pass', 'charges', 'dependences'));   
     }
 
     /**
@@ -75,13 +92,12 @@ class PassController extends Controller
     public function update(Request $request, Pass $pass)
     {
         $request->validate([
-            'charge_id' => 'required',
-            'dependence_id' => 'required',
             'ncard' => 'required',
             'name' => 'required',
+            'charge_id' => 'required',
+            'dependence_id' => 'required',
             'motive' => 'required',
             'place' => 'required',
-            'observation'=> 'required',
             'time' => 'required',
             'input' => 'required',
             'output' => 'required',

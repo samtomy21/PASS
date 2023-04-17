@@ -12,7 +12,7 @@ class DependenceController extends Controller
     {
         
         return view('dependences.index',[
-            'dependences' => Dependence::latest()->get(),
+            'dependences' => Dependence::latest('id')->get(),
         ]);
     }
 

@@ -49,20 +49,30 @@ class passTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->get('passes')
+            ->get("passes/$pass->id")
             ->assertStatus(200)
-            ->assertSee($pass->id)
+            ->assertSee($pass->name)
             ->assertSee($pass->charges_id)
             ->assertSee($pass->dependences_id)
             ->assertSee($pass->ncard)
-            ->assertSee($pass->name)
             ->assertSee($pass->motive)
             ->assertSee($pass->place)
-            ->assertSee($pass->obsercation)
+            ->assertSee($pass->observation)
             ->assertSee($pass->time)
             ->assertSee($pass->input)
             ->assertSee($pass->output)
             ->assertSee($pass->date);
+    }
+
+    public function test_create()
+    {
+        $user = User::factory()->create();
+
+        $this
+            ->actingAs($user)
+            ->get('passes/create')
+            ->assertStatus(200);
+
     }
     
     public function test_store()
@@ -95,6 +105,21 @@ class passTest extends TestCase
 
         $this->assertDatabaseHas('passes', $data);   
     }
+
+    public function test_show()
+    {
+        $user = User::factory()->create();
+
+        $pass = Pass::factory()->create(['user_id' => $user->id]);
+
+        //dd($pass);
+
+        $this
+            ->actingAs($user)
+            ->get("passes/$pass->id")
+            ->assertStatus(200);
+    }
+
     public function test_updade()
     {
         $charge = Charge::factory()->create();
@@ -129,6 +154,29 @@ class passTest extends TestCase
 
     }
     
+    public function test_edit()
+    {
+        $user = User::factory()->create();
+        $pass = Pass::factory()->create(['user_id' => $user->id]);
+        //dd($pass);
+        $this
+            ->actingAs($user)
+            ->get("passes/$pass->id/edit")
+            ->assertStatus(200)
+            ->assertSee($pass->id)
+            ->assertSee($pass->charge_id)
+            ->assertSee($pass->dependence_id)
+            ->assertSee($pass->ncard)
+            ->assertSee($pass->name)
+            ->assertSee($pass->motive)
+            ->assertSee($pass->place)
+            ->assertSee($pass->observation)
+            ->assertSee($pass->time)
+            ->assertSee($pass->input)
+            ->assertSee($pass->output)
+            ->assertSee($pass->date);
+    }
+
     public function test_destroy()
     {
         $user = User::factory()->create();
@@ -165,17 +213,16 @@ class passTest extends TestCase
             ->post('passes', [])
             ->assertStatus(302)
             ->assertSessionHasErrors([
-                'charge_id',
-                'dependence_id',
                 'ncard',
                 'name',
+                'charge_id',
+                'dependence_id',
                 'motive',
                 'place',
-                'observation',
                 'time',
                 'input',
                 'output',
-                'date'
+                'date',
             ]);  
     }
     
@@ -190,18 +237,29 @@ class passTest extends TestCase
         ->put("passes/$pass->id", [])
         ->assertStatus(302)
         ->assertSessionHasErrors([
-            'charge_id',
-            'dependence_id',
             'ncard',
             'name',
+            'charge_id',
+            'dependence_id',
             'motive',
             'place',
-            'observation',
             'time',
             'input',
             'output',
-            'date'
+            'date',
         ]);
+    }
+
+    public function test_show_policy()
+    {
+        $user = User::factory()->create();
+
+        $pass = Pass::factory()->create();
+
+        $this
+            ->actingAs($user)
+            ->get("passes/$pass->id")
+            ->assertStatus(403);
     }
 
     public function test_updade_policy()
@@ -234,6 +292,17 @@ class passTest extends TestCase
         ->put("passes/$pass->id", $data)
         ->assertStatus(403);
 
+    }
+
+    public function test_edit_policy()
+    {
+        $user = User::factory()->create();
+        $pass = Pass::factory()->create();
+
+        $this
+            ->actingAs($user)
+            ->get("passes/$pass->id/edit")
+            ->assertStatus(403);
     }
 
     public function test_destroy_policy()
