@@ -1,24 +1,30 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Hola
+            Ver Papeleta
         </h2>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div>{{ $pass->name }}</div>
-                <div>{{ $pass->charge->name_charge }}</div>
-                <div>{{ $pass->dependence->name_dependence }}</div>
-                <div>{{ $pass->ncard }}</div>
-                <div>{{ $pass->motive }}</div>
-                <div>{{ $pass->place }}</div>
-                <div>{{ $pass->observation }}</div>
-                <div>{{ $pass->time }}</div>
-                <div>{{ $pass->input }}</div>
-                <div>{{ $pass->output }}</div>
-                <div>{{ $pass->date }}</div>
+        <div class="max-w-7xl mx-auto sm:px-24 lg:px-24">
+            <div class="mx-auto md:flex md:justify-between p-5 bg-white shadow-xl sm:rounded-lg">
+                <div class="pl-2 w-72 text-gray-800">
+                    <label class="block text-s font-semibold w-full">Nombre: </label>{{ $pass->name }}
+                    <label class="block text-s font-semibold w-full">Cargo: </label>{{ $pass->charge->name_charge }}
+                    <label class="block text-s font-semibold w-full">Dependencia: </label>{{ $pass->dependence->name_dependence }}
+                    <label class="block text-s font-semibold w-full">Codigo de Personal: </label>{{ $pass->ncard }}
+                    <label class="block text-s font-semibold w-full">Motivo de salida: </label>{{ $pass->motive }}
+                </div>
+                <div class="pl-2 w-72 text-gray-800">
+                    <label class="block text-s font-semibold w-full">Lugar: </label>{{ $pass->place }}
+                    <label class="block text-s font-semibold w-full">Tiempo autorizado: </label>{{ $pass->time }}
+                    <label class="block text-s font-semibold w-full">Hora de Salida Registrada: </label>{{ $pass->input }}
+                    <label class="block text-s font-semibold w-full">Hora de ingreso registros: </label>{{ $pass->output }}
+                    <label class="block text-s font-semibold w-full">Fecha: </label>{{ $pass->date }}
+                </div>
+                <div class="pl-2 w-80 text-gray-800 border rounded-lg border-gray-900">
+                    <label class="block text-s font-semibold w-full">Observaciones: </label>{{ $pass->observation }}
+                </div>
             </div>
         </div>
     </div>
