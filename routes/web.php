@@ -7,7 +7,7 @@ use App\Http\Controllers\ChargeController;
 use App\Http\Controllers\DependenceController;
 
 Route::get('/', function () {
-    return view('prueba');
+    return view('home');
 });
 
 Route::middleware([

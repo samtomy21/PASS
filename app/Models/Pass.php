@@ -12,8 +12,6 @@ class Pass extends Model
     protected $fillable = [
         'charge_id',
         'dependence_id',
-        'ncard',
-        'name',
         'motive',
         'place',
         'observation',

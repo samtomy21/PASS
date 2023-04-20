@@ -21,7 +21,7 @@
                     @endif
 
                     <label>Codigo de Personal *</label>
-                    <input type="text" name="ncard" >
+                    <input type="text" name="ncard">
 
                     <label>Nombre del Interesado *</label>
                     <input type="text" name="name">
