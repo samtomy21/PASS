@@ -19,20 +19,6 @@
                         @endforeach
                     </ul>
                     @endif
-                    <div class="container px-5">
-                        <label class="text-s font-semibold">Codigo de Personal:</label>
-                        <input class="rounded py-1 w-full border-gray-400" type="text" name="ncard" >
-
-<<<<<<< HEAD
-                    <label>Codigo de Personal *</label>
-                    <input type="text" name="ncard">
-
-                    <label>Nombre del Interesado *</label>
-                    <input type="text" name="name">
-=======
-                        <label class="text-s font-semibold">Nombre del Interesado:</label>
-                        <input class="rounded py-1 w-full border-gray-400" type="text" name="name">
->>>>>>> 254b477096e12760036077c16938ec7149823d21
 
 
                         <label class="text-s font-semibold">Cargo:</label>

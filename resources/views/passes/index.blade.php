@@ -8,7 +8,7 @@
     <div class="max-w-7xl mx-auto sm:px-3 lg:px-4">
         <div class="max-w-7xl">
             <p class="flex mb-4 mx-5 mt-5 rounded text-left m-4">
-                <a href="{{ route('passes.create') }}" class="bg-green-500 text-white font-bold py-2 px-4 rounded">
+                <a href="{{ route('passes.create', ) }}" class="bg-green-500 text-white font-bold py-2 px-4 rounded">
                     Agregar Nueva Papeleta
                 </a>
             </p>
@@ -38,8 +38,8 @@
                         @forelse($passes as $pass)
                         <tr class="bg-white border-b bg-white-800 border-gray-700">
                             <td scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">{{ $pass->id }}</td>
-                            <td class="px-6 py-4">{{ $pass->ncard }}</td>
-                            <td class="px-6 py-4">{{ $pass->name }}</td>
+                            <td class="px-6 py-4">{{ $pass->user->ncard }}</td>
+                            <td class="px-6 py-4">{{ $pass->user->name }}</td>
                             <td class="px-6 py-4">{{ $pass->charge->name_charge }}</td>
                             <td class="px-6 py-4">{{ $pass->dependence->name_dependence }}</td>
                             <td class="px-6 py-4">{{ $pass->motive }}</td>
