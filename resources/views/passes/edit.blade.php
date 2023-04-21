@@ -6,12 +6,12 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+        <div class="max-w-7xl mx-auto sm:px-24 lg:px-24">
+            <div class="bg-white pt-5 overflow-hidden shadow-xl sm:rounded-lg">
                 <form action="{{ route('passes.update', $pass) }}" method="POST">
-                @csrf
-                @method('PUT')
 
+                    @csrf
+                    @method('PUT')
                     @if ($errors->any())
                     <ul class="list-none p-4 mb-4 bg-red-100 text-red-500">
                         @foreach($errors->all() as $error)
@@ -21,57 +21,60 @@
                         @endforeach
                     </ul>
                     @endif
-                
-                <label>Codigo de Personal *</label>
-                <input type="text" name="ncard" value="{{ $pass->ncard }}">
-
-                <label>Nombre del Interesado *</label>
-                <input type="text" name="name" value="{{ $pass->name }}">
 
 
-                <label for="">Cargo *</label>
-                <select name="charge_id">
-                    @foreach ($charges as $charge)
-                        <option value="{{ $charge->id }}">{{ $charge->name_charge }}</option>
-                    @endforeach
-                </select>
+                        <label class="text-s font-semibold">Cargo:</label>
+                        <select name="charge_id" class="rounded py-1 w-full border-gray-400">
+                            @foreach ($charges as $charge)
+                                <option value="{{ $charge->id }}">
+                                    {{ $charge->name_charge }}
+                                </option>
+                            @endforeach
+                        </select>
 
-                <label for="">Dependencia * *</label>
-                <select name="dependence_id">
-                    @foreach ($dependences as $dependence)
-                        <option value="{{ $dependence->id }}">
-                            {{ $dependence->name_dependence }}
-                        </option>
-                    @endforeach
-                </select>
+                        <label class="text-s font-semibold">Dependencia:</label>
+                        <select name="dependence_id" class="rounded py-1 w-full border-gray-400">
+                            @foreach ($dependences as $dependence)
+                                <option value="{{ $dependence->id }}">
+                                    {{ $dependence->name_dependence }}
+                                </option>
+                            @endforeach
+                        </select>
 
-                <label>Motivo de Salida *</label>
-                <input type="text" name="motive" value="{{ $pass->motive }}">
-                
-                <label>Lugar de Salida *</label>
-                <input type="text" name="place" value="{{ $pass->place }}">
-                
-                <label>OBservacion</label>
-                <textarea name="Observation" id="" cols="30" rows="10" type="text" value="observation">
-                    {{ $pass->observation }}
-                </textarea>
-
-                <label>Tiempo Autorizado *</label>
-                <input type="time" name="time" value="{{ $pass->time }}">
-                
-                <label>Hora de Salida Registrada *</label>
-                <input type="time" name="input" value="{{ $pass->input }}">
-                
-                <label>Hora de ingreso registrod *</label>
-                <input type="time" name="output" value="{{ $pass->output }}">
-                
-                <label>Fecha *</label>
-                <input type="date" name="date" value="{{ $pass->date }}">
-                
-                <hr>
-
-                <input type="submit" value="Editar">
-
+                        <label class="text-s font-semibold">Motivo de Salida:</label>
+                        <input type="text"  class="rounded py-1 w-full border-gray-400" name="motive" value="{{ $pass->motive }}">
+                        
+                        <label class="text-s font-semibold">Lugar de Salida:</label>
+                        <input type="text" class="rounded py-1 w-full border-gray-400" name="place"  value="{{ $pass->place }}">
+                    </div>
+                    <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
+                    <div class="container px-5 gap-5 md:flex md:w-full">
+                        <div class="container w-full">
+                            <label class="text-s font-semibold">Tiempo Autorizado:</label>
+                            <input type="time" class="rounded py-1 w-full border-gray-400" name="time"  value="{{ $pass->time }}">
+                            
+                            <label class="text-s font-semibold">Hora de Salida Registrada:</label>
+                            <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="input"  value="{{ $pass->input}}">
+                            
+                            <label class="text-s font-semibold">Hora de ingreso registros:</label>
+                            <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="output"  value="{{ $pass->output }}">
+                        </div>                        
+                        <div class="container">
+                            <label class="text-s font-semibold">Observaciones:</label>
+                            <textarea name="observation" class="rounded py-1 w-full border-gray-400" id="" cols="20" rows="6" type="text" >{{ $pass->motive }}</textarea>       
+                        </div>
+                                         
+                    </div>
+                    <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
+                    <div class="flex px-5 justify-between items-center pb-5">
+                        <div class="w-1/2">
+                            <label class="text-s font-semibold">Fecha</label>
+                            <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date"  value="{{ $pass->date }}">
+                        </div>                        
+                        <div class="justify-end">
+                            <input type="submit" placeholder="Editar" class="bg-gray-800 text-white rounded px-4 py-1" value="Editar">
+                        </div>
+                    </div>  
                 </form>
             </div>
         </div>
