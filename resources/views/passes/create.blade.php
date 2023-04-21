@@ -76,12 +76,9 @@
                             <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date">
                         </div>                        
                         <div class="justify-end">
-                            <input type="submit" placeholder="Guardar" class="bg-gray-800 text-white rounded px-4 py-1">
+                            <input type="submit" class="bg-gray-800 text-white rounded px-4 py-1" value="Enviar">
                         </div>
                     </div>
-                    
-                    
-
                 </form>
             </div>
         </div>
