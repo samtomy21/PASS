@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Charge;
 use App\Models\Dependence;
+use App\Models\User;
 
 use App\Models\Pass;
 
@@ -31,8 +32,9 @@ class PassController extends Controller
     {   
         $charges = Charge::all();
         $dependences = Dependence::all();
+        $users = User::all();
 
-        return view('passes.create', compact('charges', 'dependences'));
+        return view('passes.create', compact('charges', 'dependences', 'users'));
     }
 
     /**
@@ -41,8 +43,6 @@ class PassController extends Controller
     public function store(Request $request, Pass $pass)
     {
         $request->validate([
-            'ncard' => 'required',
-            'name' => 'required',
             'charge_id' => 'required',
             'dependence_id' => 'required',
             'motive' => 'required',
@@ -82,8 +82,9 @@ class PassController extends Controller
 
         $charges = Charge::all();
         $dependences = Dependence::all();
+        $users = User::all();
 
-        return view('passes.edit', compact('pass', 'charges', 'dependences'));   
+        return view('passes.edit', compact('pass', 'charges', 'dependences', 'users'));   
     }
 
     /**
@@ -92,8 +93,6 @@ class PassController extends Controller
     public function update(Request $request, Pass $pass)
     {
         $request->validate([
-            'ncard' => 'required',
-            'name' => 'required',
             'charge_id' => 'required',
             'dependence_id' => 'required',
             'motive' => 'required',

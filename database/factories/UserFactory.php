@@ -27,6 +27,9 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
+            'ncard' => $this->faker->randomElement($array = array('0001', '0002')),
+            'name_charge' => $this->faker->randomElement($array = array('aistente', 'jefe')),
+            'name_dependence' => $this->faker->randomElement($array = array('otic', 'gri')),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'two_factor_secret' => null,

@@ -19,12 +19,6 @@
                         @endforeach
                     </ul>
                     @endif
-                    <div class="container px-5">
-                        <label class="text-s font-semibold">Codigo de Personal:</label>
-                        <input class="rounded py-1 w-full border-gray-400" type="text" name="ncard" >
-
-                        <label class="text-s font-semibold">Nombre del Interesado:</label>
-                        <input class="rounded py-1 w-full border-gray-400" type="text" name="name">
 
 
                         <label class="text-s font-semibold">Cargo:</label>
@@ -46,7 +40,7 @@
                         </select>
 
                         <label class="text-s font-semibold">Motivo de Salida:</label>
-                        <input type="text" class="rounded py-1 w-full border-gray-400" class="rounded py-1 w-full border-gray-400" name="motive">
+                        <input type="text"  class="rounded py-1 w-full border-gray-400" name="motive">
                         
                         <label class="text-s font-semibold">Lugar de Salida:</label>
                         <input type="text" class="rounded py-1 w-full border-gray-400" name="place">
@@ -76,9 +70,9 @@
                             <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date">
                         </div>                        
                         <div class="justify-end">
-                            <input type="submit" class="bg-gray-800 text-white rounded px-4 py-1" value="Enviar">
+                            <input type="submit" placeholder="Guardar" class="bg-gray-800 text-white rounded px-4 py-1" value="Guardar">
                         </div>
-                    </div>
+                    </div>  
                 </form>
             </div>
         </div>

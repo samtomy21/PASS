@@ -24,8 +24,6 @@ class PassFactory extends Factory
             'dependence_id' => Dependence::factory(),
             'user_id' => User::factory(),
 
-            'ncard' => $this->faker->randomDigitNot(6),
-            'name' => $this->faker->name(),
             'motive' => $this->faker->sentence(),
             'place' => $this->faker->secondaryAddress(),
             'observation' => $this->faker->sentence(25),
