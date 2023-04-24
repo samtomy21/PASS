@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
+
 use App\Models\Charge;
 use App\Models\Dependence;
 use App\Models\User;
@@ -67,6 +69,8 @@ class PassController extends Controller
         {
             abort(403);
         }
+
+        //return dd(compact('pass'));
         return view('passes.show', compact('pass'));
     }
 
@@ -124,4 +128,24 @@ class PassController extends Controller
         
         return redirect()->route('passes.index');
     }
+
+    public function reporte(Request $request)
+    {
+        $pdf = PDF::setPaper('a4', 'landscape')->loadview('passes.reporte',[
+            'passes' => auth()->user()->passes
+        ]);
+        return $pdf->stream();
+    }
+    
+    public function print(Request $request, Pass $pass)
+    {   
+        
+        $pdf = PDF::loadview('passes.pdf', [
+            'pass' => Pass::find($request->id)
+        ]);
+
+        return $pdf->stream();
+    
+    }
+    
 }

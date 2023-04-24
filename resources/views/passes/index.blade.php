@@ -13,6 +13,13 @@
                 </a>
             </p>
         </div>
+        <div class="max-w-7xl">
+            <p class="flex mb-4 mx-5 mt-5 rounded text-left m-4">
+                <a href="{{ route('passes.reporte', ) }}" class="bg-green-500 text-white font-bold py-2 px-4 rounded">
+                    Imprimir
+                </a>
+            </p>
+        </div>
     </div>
     <div class="flex flex-col overflow-x-auto py-2 ">
         <div class="max-w-7xl mx-auto sm:px-3 lg:px-4">
@@ -51,6 +58,7 @@
                             <!-- <td class="px-6 py-4">{{ $pass->observation }}</td> -->
                             <td class="flex px-auto py-4 mb-2">
                                 <a href="{{ route('passes.show', $pass) }}" class="bg-yellow-500 text-white rounded px-2 py-1 mx-1">Ver</a>
+                                <a href="{{ route('passes.print', $pass) }}" class="bg-yellow-500 text-white rounded px-2 py-1 mx-1">Imprimir</a>
                                 <a href="{{ route('passes.edit', $pass) }}" class="bg-blue-800 text-white rounded px-2 py-1 mx-1">Editar</a>
                                 <form action="{{ route('passes.destroy', $pass) }}" method="POST">
                                     @csrf

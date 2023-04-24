@@ -1,0 +1,72 @@
+@page{
+    margin: 3cm 0.5cm 1.5cm 0.5cm;
+}
+
+@font-face{
+    font-family:"Montserrat";
+    src: url('{{ storage_path("fonts\Montserrat-Light.ttf") }}') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"Montserrat";
+    src: url('{{ storage_path("fonts/Montserrat-Regular.ttf") }}') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"Montserrat";
+    src: url('{{ storage_path("fonts/Montserrat-Bold.ttf") }}') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+#header{
+    position: fixed;
+    top: -3cm;
+    left: 0cm;
+}
+
+.imgheader{
+    float: left;
+    width: 3cm;
+}
+.infoheader{
+    float:left;
+    margin-left: 1cm;
+}
+#footer{
+    position: fixed;
+    bottom: -1.5cm;
+    left: 0cm;
+    width: 100%;
+    background-color: rgb(58, 131, 195);
+}
+
+.textfooter{
+    text-align: center;
+    width: 100%;
+}
+
+.hijo{
+    width: 2cm;
+    height: 1cm;
+    margin: 0.2cm;
+    background-color: yellow;
+}
+
+.light {
+    font-family: "Montserrat";
+    font-weight:100;
+}
+.regular {
+    font-family: "Montserrat";
+    font-weight:400;
+}
+.bold{
+    font-family: "Montserrat";
+    font-weight:700;
+}

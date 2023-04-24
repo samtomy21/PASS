@@ -27,12 +27,17 @@ Route::resource('dependences', DependenceController::class)->middleware('auth');
 
 
 Route::get('pdf', function(){
-    $pdf = PDF::loadview('pdf.pdf');
+    $pdf = PDF::loadview('pdf.pdf', [
+        'titulo' => 'Este es mi titulo'
+    ]);
     //$path = storage_path('app/public/prueba.pdf');
     //$pdf->save($path);
 
-    Storage::put('public/prueba2.pdf', $pdf->output());
+    //Storage::put('public/prueba2.pdf', $pdf->output());
 
-    return 'Se Guardado';
+    return $pdf->stream();
 });
+
+Route::get('passes.reporte', [PassController::class, 'reporte'])->middleware('auth')->name('passes.reporte');
+Route::get('passes/{id}/print', [PassController::class, 'print'])->middleware('auth')->name('passes.print');
 
