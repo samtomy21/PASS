@@ -12,8 +12,11 @@ use App\Models\Pass;
 
 class EditModal extends Component
 {
+    public $pass;
     public $open = false;
-
+    public function mount(Pass $pass){
+        $this->pass = $pass;
+    }
     public function render(Request $request, Pass $pass)
     {   
         //para el modal editar

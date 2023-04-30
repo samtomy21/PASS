@@ -50,12 +50,8 @@
                             <td class="px-6 py-4">{{ $pass->output }}</td>
                             <td class="px-6 py-4">{{ $pass->date }}</td>
                             <!-- <td class="px-6 py-4">{{ $pass->observation }}</td> -->
-                            <td class="flex px-auto py-4 mb-2">
-                                <!-- <a href="{{ route('passes.show', $pass) }}" class="bg-yellow-500 text-white rounded px-2 py-1 mx-1">Ver</a> -->
-                                <!-- <a href="#" class="btn btn-success bg-blue-400 text-white rounded px-2 py-1 mx-1" data-toggle="modal" data-target="#ModalVer">Ver</a> -->
-                                @livewire('edit-modal')
-                                <a href="{{ route('passes.print', $pass) }}" class="bg-yellow-500 text-white rounded px-2 py-1 mx-1">Imprimir</a>
-                                <!-- <a href="{{ route('passes.edit', $pass) }}" class="bg-blue-800 text-white rounded px-2 py-1 mx-1">Editar</a> -->
+                            <td class="flex px-auto py-4 mb-2 items-center">
+                                @livewire('edit-modal', ['pass' => $pass], key($pass->id))
                                 <form action="{{ route('passes.destroy', $pass) }}" method="POST">  <!--onsubmit="return confirm('{{ trans('Estas seguro que desea eliminar? ') }}'); "> -->
                                     @csrf
                                     @method('DELETE')
