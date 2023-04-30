@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('passes', function (Blueprint $table) {
             $table->id();
-
+ 
             $table->unsignedBigInteger('dependence_id');
             $table->unsignedBigInteger('charge_id');
             $table->unsignedBigInteger('user_id');

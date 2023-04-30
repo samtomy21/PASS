@@ -35,7 +35,7 @@
     width: 3cm;
 }
 .infoheader{
-    float:left;
+    float: left;
     margin-left: 1cm;
 }
 #footer{
@@ -69,4 +69,7 @@
 .bold{
     font-family: "Montserrat";
     font-weight:700;
+}
+.prueba{
+    color: red;
 }
