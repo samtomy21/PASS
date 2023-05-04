@@ -88,3 +88,36 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+        $(function(e){
+
+            $("#select_all_ids").click(function(){
+                $('.checkbox_ids').prop('checked', $(this).prop('checked'));
+            });
+
+            $('#deleteAllSelectedRecord').click(function(e){
+                e.preventDefault();
+                var all_ids = [];
+                $('input:checkbox[name=ids]:checked').each(function(){
+                    all_ids.push($(this).val());
+                });
+
+                $.ajax({
+                    url:"{{ route('passes.deleteAll') }}",
+                    type:"DELETE",
+                    data:{
+                        ids:all_ids,
+                        _token:'{{ csrf_token() }}'
+                    },
+                    success:function(response){
+                        $.each(all_ids, function(key,val){
+                            $('#pass_ids'+val).remove();
+                        })
+                    }
+
+                });
+
+            });
+        });
+</script>
