@@ -16,11 +16,30 @@ class UserSeeder extends Seeder
             'name' => 'Yury Brayan Huaquilla Torres',
             'email' => 'yury@hotmail.com',
             'ncard' => '00001',
-            'name_charge' => 'gobernador',
-            'name_dependence' => 'gobernacion',
             'password' => bcrypt('password'),
         ])->assignRole('Admin');
 
-        User::factory(9)->create();
+        User::create([
+            'name' => 'Brad Tyler Sanchez Mamani',
+            'email' => 'brad@hotmail.com',
+            'ncard' => '00002',
+            'password' => bcrypt('password'),
+        ])->assignRole('Admin');
+
+        User::create([
+            'name' => 'Marcos Deniss Choque Castro',
+            'email' => 'deniss@hotmail.com',
+            'ncard' => '00003',
+            'password' => bcrypt('password'),
+        ])->assignRole('Employee');
+
+        User::create([
+            'name' => 'Milton Jarata Quispe',
+            'email' => 'Milton@hotmail.com',
+            'ncard' => '00003',
+            'password' => bcrypt('password'),
+        ])->assignRole('Employee');
+
+        User::factory(99)->create();
     }
 }

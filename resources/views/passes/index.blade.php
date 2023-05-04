@@ -20,6 +20,14 @@
                 </a>
             </p>
         </div>
+
+        <div class="max-w-7xl">
+            <p class="flex mb-4 mx-5 mt-5 rounded text-left m-4">
+                <a href="#" id="deleteAllSelectedRecord" class="bg-red-500 text-white font-bold py-2 px-4 rounded">
+                    Eliminar Seleccionados
+                </a>
+            </p>
+        </div>
     </div>
     <div class="flex flex-col overflow-x-auto py-2 ">
         <div class="max-w-7xl mx-auto sm:px-3 lg:px-4">
@@ -27,6 +35,9 @@
                 <table class="table-fixed min-w-full text-sm text-left text-gray-800">
                     <thead class="text-xs uppercase bg-gray-700 text-white">
                         <tr>
+                            <th>
+                                <input type="checkbox" name="" id="select_all_ids">
+                            </th>
                             <th scope="col" class="px-4 py-3">Id</th>
                             <th scope="col" class="px-4 py-3">N° Targeta</th>
                             <th scope="col" class="px-4 py-3">Nombre</th>
@@ -43,7 +54,13 @@
                     </thead>
                     <tbody>
                         @forelse($passes as $pass)
-                        <tr class="bg-white border-b bg-white-800 border-gray-700">
+                        <tr
+                            id="pass_ids{{ $pass->id }}"
+                            class="bg-white border-b bg-white-800 border-gray-700"
+                        >
+                            <td>
+                                <input type="checkbox" class="checkbox_ids" name="ids" value="{{ $pass->id }}">
+                            </td>
                             <td scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">{{ $pass->id }}</td>
                             <td class="px-6 py-4">{{ $pass->user->ncard }}</td>
                             <td class="px-6 py-4">{{ $pass->user->name }}</td>
@@ -79,3 +96,36 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+        $(function(e){
+
+            $("#select_all_ids").click(function(){
+                $('.checkbox_ids').prop('checked', $(this).prop('checked'));
+            });
+
+            $('#deleteAllSelectedRecord').click(function(e){
+                e.preventDefault();
+                var all_ids = [];
+                $('input:checkbox[name=ids]:checked').each(function(){
+                    all_ids.push($(this).val());
+                });
+
+                $.ajax({
+                    url:"{{ route('passes.deleteAll') }}",
+                    type:"DELETE",
+                    data:{
+                        ids:all_ids,
+                        _token:'{{ csrf_token() }}'
+                    },
+                    success:function(response){
+                        $.each(all_ids, function(key,val){
+                            $('#pass_ids'+val).remove();
+                        })
+                    }
+
+                });
+
+            });
+        });
+</script>

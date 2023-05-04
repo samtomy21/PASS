@@ -9,23 +9,41 @@
                         <img src="{{ asset('images/LOGO-GORE2.png') }}" class="h-12">
                     </a>
                 </div>
-
+                
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('passes.index') }}" :active="request()->routeIs('passes')">
-                        Papeletas
-                    </x-nav-link>
-                </div>
+                @can('users.index')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users')">
+                            Usuarios
+                        </x-nav-link>
+                    </div>
+                @endcan
+
+                @can('passes.index')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('passes.index') }}" :active="request()->routeIs('passes')">
+                            Papeletas
+                        </x-nav-link>
+                    </div>
+                @endcan
+
+
+                @can('charges.index')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('charges.index') }}" :active="request()->routeIs('charges')">
                         Cargos
                     </x-nav-link>
                 </div>
+                @endcan
+
+                @can('dependences.index')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('dependences.index') }}" :active="request()->routeIs('dependences')">
                         Dependencias
                     </x-nav-link>
                 </div>
+                @endcan
+
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

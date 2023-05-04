@@ -129,6 +129,12 @@ class PassController extends Controller
         return redirect()->route('passes.index');
     }
 
+    public function deleteAll(Request $request){
+        $ids = $request->ids;
+        Pass::whereIn('id', $ids)->delete();
+        return response()->json(["success" => "Las Papeletas de Permisos han sido Eliminados!"]);
+    }
+
     public function reporte(Request $request)
     {
         $pdf = PDF::setPaper('a4', 'landscape')->loadview('passes.reporte',[
