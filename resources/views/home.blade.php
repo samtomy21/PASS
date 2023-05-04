@@ -10,7 +10,7 @@
 <body class="bg-slate-600 w-full h-full">
     <div class="bg-blue-200 w-full">
         <div class="flex">
-            <div class="py-1 mx-auto">
+            <div class="py-3 mx-auto">
                 <img src="{{ asset('images/LOGO-GORE2.png') }}" class="h-20" alt="logo">
             </div>
         </div>

@@ -1,11 +1,13 @@
 <?php
-
+namespace App\Http\Livewire;
 namespace App\Http\Controllers;
+
 
 use Illuminate\Http\Request;
 
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
+use Livewire\Component;
 use App\Models\Charge;
 use App\Models\Dependence;
 use App\Models\User;
@@ -153,5 +155,4 @@ class PassController extends Controller
         return $pdf->stream();
     
     }
-    
 }
