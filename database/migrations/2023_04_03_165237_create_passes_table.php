@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('motive');
             $table->string('place');
             $table->string('observation');
+            $table->smallInt()
             $table->time('time');
             $table->time('input');
             $table->time('output');
