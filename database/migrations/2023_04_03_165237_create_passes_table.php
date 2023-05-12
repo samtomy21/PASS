@@ -21,11 +21,11 @@ return new class extends Migration
             $table->string('motive');
             $table->string('place');
             $table->string('observation');
-            $table->smallInt()
+            $table->smallInteger('estado')->defaault(0);
             $table->time('time');
             $table->time('input');
             $table->time('output');
-            $table->date('date');
+            $table->dateTimeTz('date');
 
             $table->timestamps();
 

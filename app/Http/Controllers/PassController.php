@@ -25,7 +25,11 @@ class PassController extends Controller
     public function index(Request $request)
     {
         return view('passes.index', [
-            'passes' => auth()->user()->passes
+            'passes' => auth()
+                        ->user()
+                        ->passes()
+                        ->where('estado',0)
+                        ->get(),
         ]);
     }
 
@@ -154,5 +158,15 @@ class PassController extends Controller
 
         return $pdf->stream();
     
+    }
+
+    public function firmar(Request $request, Pass $pass)
+    {
+        $sign = Pass::find($request->id);
+        $firm = $sign->estado + 1;
+        $sign->estado = $firm;
+        $sign->save();
+
+        return redirect()->route('passes.index');
     }
 }

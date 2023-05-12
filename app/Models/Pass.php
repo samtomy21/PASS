@@ -15,6 +15,7 @@ class Pass extends Model
         'motive',
         'place',
         'observation',
+        'estado',
         'time',
         'input',
         'output',

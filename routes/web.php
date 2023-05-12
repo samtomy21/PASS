@@ -29,6 +29,7 @@ Route::resource('dependences', DependenceController::class)->middleware('auth');
 
 Route::get('passes.reporte', [PassController::class, 'reporte'])->middleware('auth')->name('passes.reporte');
 Route::get('passes/{id}/print', [PassController::class, 'print'])->middleware('auth')->name('passes.print');
+Route::get('passes/{id}/firmar', [PassController::class, 'firmar'])->middleware('auth')->name('passes.firmar');
 
 Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->middleware('auth');
 
