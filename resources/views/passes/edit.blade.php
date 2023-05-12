@@ -9,7 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-24 lg:px-24">
             <div class="bg-white pt-5 px-4 overflow-hidden shadow-xl sm:rounded-lg">
                 <form action="{{ route('passes.update', $pass) }}" method="POST">
-
                     @csrf
                     @method('PUT')
                     @if ($errors->any())
@@ -21,8 +20,6 @@
                         @endforeach
                     </ul>
                     @endif
-
-
                     <label class="text-s font-semibold">Cargo:</label>
                     <select name="charge_id" class="rounded py-1 w-full border-gray-400">
                         @foreach ($charges as $charge)
@@ -31,7 +28,6 @@
                         </option>
                         @endforeach
                     </select>
-
                     <label class="text-s font-semibold">Dependencia:</label>
                     <select name="dependence_id" class="rounded py-1 w-full border-gray-400">
                         @foreach ($dependences as $dependence)
@@ -40,7 +36,6 @@
                         </option>
                         @endforeach
                     </select>
-
                     <label class="text-s font-semibold">Motivo de Salida:</label>
                     <input type="text" class="rounded py-1 w-full border-gray-400" name="motive" value="{{ $pass->motive }}">
 

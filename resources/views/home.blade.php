@@ -7,22 +7,28 @@
     @vite(['resources/css/app.css', 'resources/js/app.js']) <!-- para el css/ en esta version de laravel con el archivo vite.config,js -->
     <title>Papeletas</title>
 </head>
-<body class="bg-slate-600 w-full h-full">
-    <div class="bg-blue-200 w-full">
+<body class="bg-gray-100 w-full h-full">
+    <div class="bg-principal w-full">
         <div class="flex">
             <div class="py-3 mx-auto">
                 <img src="{{ asset('images/LOGO-GORE2.png') }}" class="h-20" alt="logo">
             </div>
         </div>
     </div>
-        <main>
-            <div class="w-full h-3/4">
-                <div class="w-full h-full flex flex-col absolute mt-12 space-y-10 py-4 items-center">
-                    <a href="{{ route('login') }}" class="w-32 rounded-full text-xl text-blue-800 shadow-sm font-semibold pl-6 py-4 bg-white">Login</a>
-                    <a href="{{ route('register') }}" class="w-32 rounded-full text-xl text-blue-800 shadow-sm font-semibold pl-6 py-4 bg-white">Register</a>
-                </div>
-                <div>
-                    <!-- <img src="{{ asset('images/mont.jpg') }}" class=""> -->
+        <main class="w-full">
+            <div class="w-full">
+                <div class="w-1/2 flex mt-12 border-2 border-gray-400 rounded-lg mx-auto">
+                    <div class="flex flex-col space-y-5 py-16 mx-10">
+                        <a href="{{ route('login') }}" class="w-32 rounded-full text-xl text-gray-50 shadow-sm font-semibold pl-6 py-2 border border-gray-500 bg-principal hover:bg-white hover:text-principal">Login</a>
+                        <a href="{{ route('register') }}" class="w-32 rounded-full text-xl text-gray-50 shadow-sm font-semibold pl-6 py-2 border border-gray-500 bg-principal hover:bg-white hover:text-principal">Register</a>
+                    </div>
+                    <div class="w-1/2 flex py-12">
+                        <p class="text-gray-700 mx-auto">
+                            <strong class="text-2xl text-principal">Pass</strong>
+                            <br>
+                            <strong>Sistema de Papeletas de Salida, agiliza tus permisos de salida.</strong>
+                        </p>
+                    </div>
                 </div>
                 
             </div>
