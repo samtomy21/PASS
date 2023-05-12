@@ -8,12 +8,14 @@ use App\Models\Charge;
 use App\Models\Dependence;
 use App\Models\User;
 
+
 use App\Models\Pass;
 
 class EditModal extends Component
 {
     public $pass;
     public $open = false;
+    
     public function mount(Pass $pass){
         $this->pass = $pass;
     }
@@ -24,8 +26,10 @@ class EditModal extends Component
         $dependences = Dependence::all();
         $users = User::all();
         
-        // return view('livewire.edit-modal', compact('pass', 'charges', 'dependences', 'users'));  
-        return view('livewire.edit-modal', compact('pass'));  
+        return view('livewire.edit-modal', compact('pass', 'charges', 'dependences', 'users'));  
+        // return view('livewire.edit-modal', compact('pass'));  
     }
     
+    
+     
 }
