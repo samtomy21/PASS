@@ -51,8 +51,6 @@ class PassController extends Controller
     public function store(Request $request, Pass $pass)
     {
         $request->validate([
-            'charge_id' => 'required',
-            'dependence_id' => 'required',
             'motive' => 'required',
             'place' => 'required',
             'time' => 'required',
@@ -90,11 +88,7 @@ class PassController extends Controller
             abort(403);
         }
 
-        $charges = Charge::all();
-        $dependences = Dependence::all();
-        $users = User::all();
-
-        return view('passes.edit', compact('pass', 'charges', 'dependences', 'users'));   
+        return view('passes.edit', compact('pass'));   
     }
 
     /**
@@ -103,8 +97,6 @@ class PassController extends Controller
     public function update(Request $request, Pass $pass)
     {
         $request->validate([
-            'charge_id' => 'required',
-            'dependence_id' => 'required',
             'motive' => 'required',
             'place' => 'required',
             'time' => 'required',

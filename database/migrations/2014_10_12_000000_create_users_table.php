@@ -17,12 +17,17 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('ncard');
+            $table->unsignedBigInteger('dependence_id');
+            $table->unsignedBigInteger('charge_id');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
+
+            $table->foreign('dependence_id')->references('id')->on('dependences');
+            $table->foreign('charge_id')->references('id')->on('charges');
 
 
         });

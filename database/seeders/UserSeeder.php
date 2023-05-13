@@ -16,6 +16,8 @@ class UserSeeder extends Seeder
             'name' => 'Yury Brayan Huaquilla Torres',
             'email' => 'yury@hotmail.com',
             'ncard' => '0001',
+            'charge_id' => rand(1,4),
+            'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
         ])->assignRole('Admin');
 
@@ -23,6 +25,8 @@ class UserSeeder extends Seeder
             'name' => 'Brad Tyler Sanchez Mamani',
             'email' => 'brad@hotmail.com',
             'ncard' => '0002',
+            'charge_id' => rand(1,4),
+            'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
         ])->assignRole('Admin');
 
@@ -30,6 +34,8 @@ class UserSeeder extends Seeder
             'name' => 'Marcos Deniss Choque Castro',
             'email' => 'deniss@hotmail.com',
             'ncard' => '0003',
+            'charge_id' => rand(1,4),
+            'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
         ])->assignRole('Employee');
 
@@ -37,6 +43,8 @@ class UserSeeder extends Seeder
             'name' => 'Milton Jarata Quispe',
             'email' => 'Milton@hotmail.com',
             'ncard' => '0004',
+            'charge_id' => rand(1,4),
+            'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
         ])->assignRole('Employee');
 

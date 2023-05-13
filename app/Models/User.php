@@ -10,7 +10,10 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Charge;
+use App\Models\Dependence;
 
 class User extends Authenticatable
 {
@@ -27,6 +30,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'charge_id',
+        'dependence_id',
         'name',
         'email',
         'ncard',
@@ -54,6 +59,16 @@ class User extends Authenticatable
     ];
     public function passes()
     {
-        return $this->hasmany(Pass::class);
+        return $this->hasMany(Pass::class);
     }
+    public function charge()
+    {
+        return $this->belongsTo(Charge::class);
+    }
+
+    public function dependence()
+    {
+        return $this->belongsTo(Dependence::class);
+    }
+
 }

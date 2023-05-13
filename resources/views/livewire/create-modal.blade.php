@@ -21,25 +21,6 @@
                         </ul>
                         @endif
 
-
-                        <label class="text-s font-semibold">Cargo:</label>
-                        <select name="charge_id" class="rounded py-1 w-full border-gray-400">
-                            @foreach ($charges as $charge)
-                            <option value="{{ $charge->id }}">
-                                {{ $charge->name_charge }}
-                            </option>
-                            @endforeach
-                        </select>
-
-                        <label class="text-s font-semibold">Dependencia:</label>
-                        <select name="dependence_id" class="rounded py-1 w-full border-gray-400">
-                            @foreach ($dependences as $dependence)
-                            <option value="{{ $dependence->id }}">
-                                {{ $dependence->name_dependence }}
-                            </option>
-                            @endforeach
-                        </select>
-
                         <label class="text-s font-semibold">Motivo de Salida:</label>
                         <input type="text" class="rounded py-1 w-full border-gray-400" name="motive">
 

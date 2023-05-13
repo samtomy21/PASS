@@ -20,8 +20,6 @@ class PassFactory extends Factory
     public function definition(): array
     {
         return [
-            'charge_id' => rand(1,4),
-            'dependence_id' => rand(1,27),
             'user_id' => rand(1,4),
 
             'motive' => $this->faker->sentence(),

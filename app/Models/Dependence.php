@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Dependence extends Model
 {
@@ -14,9 +15,9 @@ class Dependence extends Model
         'name_dependence',
     ];
     
-    public function passes()
+    public function users()
     {
-        return $this->hasMany(Pass::class);
+        return $this->hasMany(User::class);
     }
     
 }
