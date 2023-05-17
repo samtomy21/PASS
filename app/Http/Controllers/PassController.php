@@ -115,7 +115,7 @@ class PassController extends Controller
         }
 
         $pass->update($request->all());
-        return redirect()->route('passes.edit', $pass);
+        return redirect()->route('passes.index', $pass);
         
     }
 

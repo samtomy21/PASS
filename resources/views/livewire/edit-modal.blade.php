@@ -51,7 +51,7 @@
                     </ul>
                     @endif
                     <label class="text-s font-semibold">Cargo:</label>
-                    <select name="charge_id" class="rounded py-1 w-full border-gray-400">
+                    <select name="charge_id" class="rounded py-1 w-full border-gray-400 disabled">
                         @foreach ($charges as $charge)
                         <option value="{{ $charge->id }}">
                             {{ $charge->name_charge }}
