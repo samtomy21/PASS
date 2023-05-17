@@ -7,9 +7,15 @@
 
     <div class="max-w-7xl mx-auto sm:px-3 lg:px-4">
         <div class=" flex justify-between items-center max-w-7xl">
+            <!-- <a href="{{ route('passes.create') }}" class="bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded">
+                Nuevo Registro
+            </a> -->
+
             @livewire('create-modal')
+
             <p class="mb-4 mx-5 mt-5 rounded text-left m-4">
-                <a href="{{ route('passes.reporte', ) }}" class="bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded">
+
+                <a href="{{ route('passes.reporte') }}" class="bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded">
                     Imprimir
                 </a>
             </p>
@@ -82,7 +88,7 @@
                         </tr>
                         @empty
                         <tr class="bg-white border-b bg-white-800 dark:border-gray-700">
-                            <td colspan="12">No has creado ningun permiso</td>
+                            <td colspan="13">No has creado ningun permiso</td>
                         </tr>
                         @endforelse
                     </tbody>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Time;
 
 class Pass extends Model
 {
@@ -16,7 +17,7 @@ class Pass extends Model
         'place',
         'observation',
         'estado',
-        'time',
+        'time_id',
         'input',
         'output',
         'date'
@@ -27,10 +28,9 @@ class Pass extends Model
         return $this->belongsTo(User::class);
     }
     
-
-    public function dependence()
+    public function time()
     {
-        return $this->belongsTo(Dependence::class);
+        return $this->belongsTo(Time::class);
     }
     
 }

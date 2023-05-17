@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('place');
             $table->string('observation');
             $table->smallInteger('estado')->defaault(0);
-            $table->time('time');
+            $table->unsignedBigInteger('time_id');
             $table->time('input');
             $table->time('output');
             $table->dateTimeTz('date');
@@ -30,6 +30,7 @@ return new class extends Migration
 
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('time_id')->references('id')->on('times');
 
         });
     }

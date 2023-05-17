@@ -13,16 +13,6 @@
                 <form action="{{ route('passes.update', $pass) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    @if ($errors->any())
-                    <ul class="list-none p-4 mb-4 bg-red-100 text-red-500">
-                        @foreach($errors->all() as $error)
-                        <li>
-                            {{$error}}
-                        </li>
-                        @endforeach
-                    </ul>
-                    @endif
-
                     <label class="text-s font-semibold">Motivo de Salida:</label>
                     <input type="text" class="rounded py-1 w-full border-gray-400" name="motive" value="{{ $pass->motive }}">
 
@@ -40,6 +30,9 @@
 
                             <label class="text-s font-semibold">Hora de ingreso registros:</label>
                             <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="output" value="{{ $pass->output }}">
+
+                            <label class="text-s font-semibold">Estado:</label>
+                            <input type="number" class="rounded py-1 w-full border-gray-400 text-gray-500" name="estado" value="{{ $pass->estado }}">
                         </div>
                         <div class="container">
                             <label class="text-s font-semibold">Observaciones:</label>
@@ -51,7 +44,7 @@
                     <div class="flex px-5 justify-between items-center pb-5">
                         <div class="w-1/2">
                             <label class="text-s font-semibold">Fecha</label>
-                            <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date" value="{{ $pass->date }}">
+                            <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date" value="{{ date('d-m-Y') }}">
                         </div>
                         <div class="justify-end">
                             <input type="submit" class="bg-green-600 text-white rounded px-4 py-1" value="Guardar">

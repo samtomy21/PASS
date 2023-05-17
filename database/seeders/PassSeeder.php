@@ -16,6 +16,6 @@ class PassSeeder extends Seeder
 
     public function run(): void
     {
-        Pass::factory(300)->create();
+        Pass::factory(15)->create();
     }
 }

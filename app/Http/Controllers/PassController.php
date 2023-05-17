@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
+use Carbon\Carbon;
 
 use Livewire\Component;
 use App\Models\Charge;
@@ -38,21 +39,21 @@ class PassController extends Controller
      */
     public function create()
     {   
-        $charges = Charge::all();
-        $dependences = Dependence::all();
-        $users = User::all();
+        $now = Carbon::now();
+        $currentDate = $now->format('Y-m-d');
 
-        return view('passes.create', compact('charges', 'dependences', 'users'));
+        return view('passes.create', compact('currentDate'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Pass $pass)
+    public function store(Request $request)
     {
         $request->validate([
             'motive' => 'required',
             'place' => 'required',
+            'estado' => 'required',
             'time' => 'required',
             'input' => 'required',
             'output' => 'required',
@@ -88,7 +89,7 @@ class PassController extends Controller
             abort(403);
         }
 
-        return view('passes.edit', compact('pass'));   
+        return view('passes.index', compact('pass'));   
     }
 
     /**
@@ -111,7 +112,7 @@ class PassController extends Controller
         }
 
         $pass->update($request->all());
-        return redirect()->route('passes.edit', $pass);
+        return redirect()->route('passes.index', $pass);
         
     }
 

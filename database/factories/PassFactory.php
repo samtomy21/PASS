@@ -4,9 +4,6 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-use App\Models\Charge;
-use App\Models\Dependence;
-use App\Models\User;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Pass>
  */
@@ -25,8 +22,8 @@ class PassFactory extends Factory
             'motive' => $this->faker->sentence(),
             'place' => $this->faker->secondaryAddress(),
             'observation' => $this->faker->word(),
-            'estado' => $this->faker->numberBetween($min = 0, $max = 4),
-            'time' => $this->faker->time(),
+            'estado' => $this->faker->numberBetween($min = 0, $max = 0),
+            'time_id' => rand(1,9),
             'input' => $this->faker->time(),
             'output' => $this->faker->time(),
             'date' => $this->faker->date(),

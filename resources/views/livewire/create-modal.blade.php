@@ -21,6 +21,7 @@
                         </ul>
                         @endif
 
+
                         <label class="text-s font-semibold">Motivo de Salida:</label>
                         <input type="text" class="rounded py-1 w-full border-gray-400" name="motive">
 
@@ -30,6 +31,9 @@
                         <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
                         <div class="container px-5 gap-5 md:flex md:w-full">
                             <div class="container w-full">
+                                <label class="text-s font-semibold">Estado:</label>
+                                <input type="number" class="rounded py-1 w-full border-gray-400" name="estado">
+
                                 <label class="text-s font-semibold">Tiempo Autorizado:</label>
                                 <input type="time" class="rounded py-1 w-full border-gray-400" name="time">
 
@@ -49,7 +53,7 @@
                         <div class="flex px-5 justify-between items-center pb-5">
                             <div class="w-1/2">
                                 <label class="text-s font-semibold">Fecha</label>
-                                <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date">
+                                <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date" value="{{ date('Y-m-d') }}">
                             </div>
                             <div class="justify-end">
                                 <input type="submit" class="bg-green-600 text-white rounded px-4 py-1" value="Guardar">

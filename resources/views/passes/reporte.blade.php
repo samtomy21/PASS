@@ -47,8 +47,8 @@
                         <td scope="row">{{ $pass->id }}</td>
                         <td class="px-6 py-4">{{ $pass->user->ncard }}</td>
                         <td class="px-6 py-4">{{ $pass->user->name }}</td>
-                        <td class="px-6 py-4">{{ $pass->charge->name_charge }}</td>
-                        <td class="px-6 py-4">{{ $pass->dependence->name_dependence }}</td>
+                        <td class="px-6 py-4">{{ $pass->user->charge->name_charge }}</td>
+                        <td class="px-6 py-4">{{ $pass->user->dependence->name_dependence }}</td>
                         <td class="px-6 py-4">{{ $pass->motive }}</td>
                         <td class="px-6 py-4">{{ $pass->place }}</td>
                         <td class="px-6 py-4">{{ $pass->time }}</td>
