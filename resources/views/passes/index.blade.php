@@ -23,7 +23,7 @@
 
         <div class="max-w-7xl">
             <p class="flex mb-4 mx-5 mt-1 rounded text-left">
-                <a href="#" id="deleteAllSelectedRecord" class="bg-red-500 text-white font-bold py-2 px-4 rounded">
+                <a href="#" id="deleteAllSelectedRecord" class="bg-red-500 text-white font-bold py-1 px-4 rounded">
                     Eliminar Seleccionados
                 </a>
             </p>
@@ -34,23 +34,23 @@
             <div class="relative overflow-x-auto bg-white shadow-md rounded-lg">
                 <table class="table-fixed min-w-full text-sm text-left text-gray-800">
                     <thead class="text-xs uppercase bg-gray-700 text-white">
-                        <tr>
+                        <tr class="align-center">
                             <th scope="col" class="px-2 py-2">
                                 <input type="checkbox" name="" id="select_all_ids" class="rounded">
                             </th>
-                            <th scope="col" class="px-4 py-3">Id</th>
-                            <th scope="col" class="px-4 py-3">N° Targeta</th>
-                            <th scope="col" class="px-4 py-3">Nombre</th>
-                            <th scope="col" class="px-4 py-3">Cargo</th>
-                            <th scope="col" class="px-4 py-3">Dependencia</th>
-                            <th scope="col" class="px-4 py-3">Motivo</th>
-                            <th scope="col" class="px-4 py-3">Lugar</th>
-                            <th scope="col" class="px-4 py-3">Tiempo Autorizado</th>
-                            <th scope="col" class="px-4 py-3">Hora de Salida</th>
-                            <th scope="col" class="px-4 py-3">Hora de Llegada</th>
-                            <th scope="col" class="px-4 py-3">Fecha</th>
-                            <th scope="col" class="px-4 py-3">Estado</th>
-                            <th scope="col" class="px-4 py-3 border-slate-200">Opciones</th>
+                            <th scope="col" class="px-1 py-2">Id</th>
+                            <th scope="col" class="px-1 py-2">N° Targeta</th>
+                            <th scope="col" class="px-1 py-2">Nombre</th>
+                            <th scope="col" class="px-1 py-2">Cargo</th>
+                            <th scope="col" class="px-1 py-2">Dependencia</th>
+                            <th scope="col" class="px-1 py-2">Motivo</th>
+                            <th scope="col" class="px-1 py-2">Lugar</th>
+                            <th scope="col" class="px-1 py-2">Tiempo Autorizado</th>
+                            <th scope="col" class="px-1 py-2">Hora de Salida</th>
+                            <th scope="col" class="px-1 py-2">Hora de Llegada</th>
+                            <th scope="col" class="px-1 py-2">Fecha</th>
+                            <th scope="col" class="px-1 py-2">Estado</th>
+                            <th scope="col" class="px-1 py-2">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,18 +62,18 @@
                             <td class="px-2 py-2">
                                 <input type="checkbox" class="checkbox_ids rounded" name="ids" value="{{ $pass->id }}">
                             </td>
-                            <td scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">{{ $pass->id }}</td>
-                            <td class="px-6 py-4">{{ $pass->user->ncard }}</td>
-                            <td class="px-6 py-4">{{ $pass->user->name }}</td>
-                            <td class="px-6 py-4">{{ $pass->user->charge->name_charge }}</td>
-                            <td class="px-6 py-4">{{ $pass->user->dependence->name_dependence }}</td>
-                            <td class="px-6 py-4">{{ $pass->motive }}</td>
-                            <td class="px-6 py-4">{{ $pass->place }}</td>
-                            <td class="px-6 py-4">{{ $pass->time }}</td>
-                            <td class="px-6 py-4">{{ $pass->input }}</td>
-                            <td class="px-6 py-4">{{ $pass->output }}</td>
-                            <td class="px-6 py-4">{{ $pass->date }}</td>
-                            <td class="px-6 py-4">{{ $pass->estado }}</td>
+                            <td scope="row" class="px-2 py-2 font-medium text-gray-700 whitespace-nowrap">{{ $pass->id }}</td>
+                            <td class="py-2">{{ $pass->user->ncard }}</td>
+                            <td class="py-2">{{ $pass->user->name }}</td>
+                            <td class="py-2">{{ $pass->user->charge->name_charge }}</td>
+                            <td class="py-2">{{ $pass->user->dependence->name_dependence }}</td>
+                            <td class="py-2">{{ $pass->motive }}</td>
+                            <td class="py-2">{{ $pass->place }}</td>
+                            <td class="py-2">{{ $pass->time_id }}</td>
+                            <td class="py-2">{{ $pass->input }}</td>
+                            <td class="py-2">{{ $pass->output }}</td>
+                            <td class="py-2">{{ $pass->date }}</td>
+                            <td class="py-2">{{ $pass->estado }}</td>
                             <!-- <td class="px-6 py-4">{{ $pass->observation }}</td> -->
                             <td class="flex px-auto py-4 mb-2 items-center">
                                 <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1">Firmar</a>

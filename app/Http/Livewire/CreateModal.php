@@ -9,9 +9,7 @@ use Carbon\Carbon;
 
 use App\Models\Pass;
 
-use App\Models\Charge;
-use App\Models\Dependence;
-use App\Models\User;
+use App\Models\time;
 
 class CreateModal extends Component
 {
@@ -19,12 +17,12 @@ class CreateModal extends Component
     public function render(Request $request, Pass $pass)
     {
         $date = Carbon::now();
-        // $charges = Charge::all();
+        $times = time::all();
         // $dependences = Dependence::all();
         // $users = User::all();
         //return dd($date);
 
         // return view('livewire.create-modal', compact('date', 'pass', 'charges', 'dependences', 'users'));
-        return view('livewire.create-modal', compact('date'));
+        return view('livewire.create-modal', compact('date','times'));
     }
 }

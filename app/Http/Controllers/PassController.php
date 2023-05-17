@@ -9,9 +9,7 @@ use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Carbon\Carbon;
 
 use Livewire\Component;
-use App\Models\Charge;
-use App\Models\Dependence;
-use App\Models\User;
+use App\Models\time;
 
 use App\Models\Pass;
 
