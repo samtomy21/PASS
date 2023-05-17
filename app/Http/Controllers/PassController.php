@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
+use Carbon\Carbon;
 
 use Livewire\Component;
 use App\Models\Charge;
@@ -25,7 +26,11 @@ class PassController extends Controller
     public function index(Request $request)
     {
         return view('passes.index', [
-            'passes' => auth()->user()->passes
+            'passes' => auth()
+                        ->user()
+                        ->passes()
+                        ->where('estado',0)
+                        ->get(),
         ]);
     }
 
@@ -34,23 +39,21 @@ class PassController extends Controller
      */
     public function create()
     {   
-        $charges = Charge::all();
-        $dependences = Dependence::all();
-        $users = User::all();
+        $now = Carbon::now();
+        $currentDate = $now->format('Y-m-d');
 
-        return view('passes.create', compact('charges', 'dependences', 'users'));
+        return view('passes.create', compact('currentDate'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Pass $pass)
+    public function store(Request $request)
     {
         $request->validate([
-            'charge_id' => 'required',
-            'dependence_id' => 'required',
             'motive' => 'required',
             'place' => 'required',
+            'estado' => 'required',
             'time' => 'required',
             'input' => 'required',
             'output' => 'required',
@@ -86,11 +89,7 @@ class PassController extends Controller
             abort(403);
         }
 
-        $charges = Charge::all();
-        $dependences = Dependence::all();
-        $users = User::all();
-
-        return view('passes.edit', compact('pass', 'charges', 'dependences', 'users'));   
+        return view('passes.index', compact('pass'));   
     }
 
     /**
@@ -99,8 +98,6 @@ class PassController extends Controller
     public function update(Request $request, Pass $pass)
     {
         $request->validate([
-            'charge_id' => 'required',
-            'dependence_id' => 'required',
             'motive' => 'required',
             'place' => 'required',
             'time' => 'required',
@@ -154,5 +151,15 @@ class PassController extends Controller
 
         return $pdf->stream();
     
+    }
+
+    public function firmar(Request $request, Pass $pass)
+    {
+        $sign = Pass::find($request->id);
+        $firm = $sign->estado + 1;
+        $sign->estado = $firm;
+        $sign->save();
+
+        return redirect()->route('passes.index');
     }
 }

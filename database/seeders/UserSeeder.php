@@ -15,31 +15,38 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Yury Brayan Huaquilla Torres',
             'email' => 'yury@hotmail.com',
-            'ncard' => '00001',
+            'ncard' => '0001',
+            'charge_id' => rand(1,4),
+            'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
         ])->assignRole('Admin');
 
         User::create([
             'name' => 'Brad Tyler Sanchez Mamani',
             'email' => 'brad@hotmail.com',
-            'ncard' => '00002',
+            'ncard' => '0002',
+            'charge_id' => rand(1,4),
+            'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
         ])->assignRole('Admin');
 
         User::create([
             'name' => 'Marcos Deniss Choque Castro',
             'email' => 'deniss@hotmail.com',
-            'ncard' => '00003',
+            'ncard' => '0003',
+            'charge_id' => rand(1,4),
+            'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
         ])->assignRole('Employee');
 
         User::create([
             'name' => 'Milton Jarata Quispe',
             'email' => 'Milton@hotmail.com',
-            'ncard' => '00003',
+            'ncard' => '0004',
+            'charge_id' => rand(1,4),
+            'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
         ])->assignRole('Employee');
 
-        User::factory(99)->create();
     }
 }

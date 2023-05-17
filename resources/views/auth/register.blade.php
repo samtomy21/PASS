@@ -24,6 +24,27 @@
                 <x-input id="ncard" class="block mt-1 w-full" type="text" name="ncard" :value="old('ncard')" required autocomplete="ncard" />
             </div>
 
+            <div>
+                <div class="mt-4">
+                <x-label for="Charge" value="{{ __('Dependence') }}" />
+                <select name="charge_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                    @foreach(\App\Models\Charge::all() as $charge)
+                        <option value="{{ $charge->id }}">{{ $charge->name_charge }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div>
+                <div class="mt-4">
+                <x-label for="Dependence" value="{{ __('Dependence') }}" />
+                <select name="dependence_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                    @foreach(\App\Models\Dependence::all() as $dependence)
+                        <option value="{{ $dependence->id }}">{{ $dependence->name_dependence }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+
+
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />

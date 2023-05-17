@@ -6,6 +6,7 @@ use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use App\Http\Controllers\PassController;
 use App\Http\Controllers\ChargeController;
 use App\Http\Controllers\DependenceController;
+use App\Http\Controllers\TimeController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -26,9 +27,11 @@ Route::resource('passes', PassController::class)->middleware('auth');
 Route::delete('passes.deleteAll', [PassController::class, 'deleteAll'])->name('passes.deleteAll')->middleware('auth');
 Route::resource('charges', ChargeController::class)->middleware('auth');
 Route::resource('dependences', DependenceController::class)->middleware('auth');
+Route::resource('times', TimeController::class)->middleware('auth');
 
 Route::get('passes.reporte', [PassController::class, 'reporte'])->middleware('auth')->name('passes.reporte');
 Route::get('passes/{id}/print', [PassController::class, 'print'])->middleware('auth')->name('passes.print');
+Route::get('passes/{id}/firmar', [PassController::class, 'firmar'])->middleware('auth')->name('passes.firmar');
 
 Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->middleware('auth');
 

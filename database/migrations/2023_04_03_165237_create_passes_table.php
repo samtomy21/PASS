@@ -14,23 +14,24 @@ return new class extends Migration
         Schema::create('passes', function (Blueprint $table) {
             $table->id();
  
-            $table->unsignedBigInteger('dependence_id');
-            $table->unsignedBigInteger('charge_id');
+
             $table->unsignedBigInteger('user_id');
 
             $table->string('motive');
             $table->string('place');
             $table->string('observation');
-            $table->time('time');
+            $table->smallInteger('estado')->defaault(0);
+            $table->unsignedBigInteger('time_id');
             $table->time('input');
             $table->time('output');
-            $table->date('date');
+            $table->dateTimeTz('date');
 
             $table->timestamps();
 
-            $table->foreign('dependence_id')->references('id')->on('dependences');
-            $table->foreign('charge_id')->references('id')->on('charges');
+
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('time_id')->references('id')->on('times');
+
         });
     }
 

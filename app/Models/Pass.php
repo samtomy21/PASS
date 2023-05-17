@@ -4,18 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Models\Time;
 
 class Pass extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'charge_id',
-        'dependence_id',
+        'user_id',
         'motive',
         'place',
         'observation',
-        'time',
+        'estado',
+        'time_id',
         'input',
         'output',
         'date'
@@ -26,14 +28,9 @@ class Pass extends Model
         return $this->belongsTo(User::class);
     }
     
-    public function charge()
+    public function time()
     {
-        return $this->belongsTo(Charge::class);
-    }
-
-    public function dependence()
-    {
-        return $this->belongsTo(Dependence::class);
+        return $this->belongsTo(Time::class);
     }
     
 }

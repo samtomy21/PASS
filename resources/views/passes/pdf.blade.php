@@ -30,8 +30,8 @@
         <div class="prueba">
             <label>Nombre: </label>{{ $pass->user->name }}
             <label>Codigo de Personal: </label>{{ $pass->user->ncard }}
-            <label>Cargo: </label>{{ $pass->charge->name_charge }}
-            <label>Dependencia: </label>{{ $pass->dependence->name_dependence }}
+            <label>Cargo: </label>{{ $pass->user->charge->name_charge }}
+            <label>Dependencia: </label>{{ $pass->user->dependence->name_dependence }}
             <label>Motivo de salida: </label>{{ $pass->motive }}
         </div>
         <div>

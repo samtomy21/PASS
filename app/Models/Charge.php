@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Charge extends Model
 {
@@ -13,9 +14,9 @@ class Charge extends Model
         'name_charge'
     ];
     
-    public function passes()
+    public function users()
     {
-        return $this->hasmany(Pass::class);
+        return $this->hasmany(User::class);
     }
     
 }

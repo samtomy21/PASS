@@ -4,20 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 use App\Models\User;
 
-class Dependence extends Model
+class time extends Model
 {
     use HasFactory;
 
-    protected $fillable =
-    [
-        'name_dependence',
+    protected $fillable= [
+        'time_permision'
     ];
-    
-    public function users()
-    {
-        return $this->hasMany(User::class);
+
+    public function passes(){
+
+        return $this->hasMany(Pass::class);
+
     }
-    
 }

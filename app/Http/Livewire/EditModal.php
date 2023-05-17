@@ -21,12 +21,7 @@ class EditModal extends Component
     }
     public function render(Request $request, Pass $pass)
     {   
-        //para el modal editar
-        $charges = Charge::all();
-        $dependences = Dependence::all();
-        $users = User::all();
-        
-        return view('livewire.edit-modal', compact('pass', 'charges', 'dependences', 'users'));  
+        return view('livewire.edit-modal', compact('pass'));  
         // return view('livewire.edit-modal', compact('pass'));  
     }
     
