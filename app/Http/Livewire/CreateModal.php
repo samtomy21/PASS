@@ -9,17 +9,13 @@ use Carbon\Carbon;
 
 use App\Models\Pass;
 
-use App\Models\Charge;
-use App\Models\Dependence;
-use App\Models\User;
-
 class CreateModal extends Component
 {
     public $open = false;
     public function render(Request $request, Pass $pass)
     {
         $date = Carbon::now();
-        // $charges = Charge::all();
+        // $times = Time::all();
         // $dependences = Dependence::all();
         // $users = User::all();
         //return dd($date);

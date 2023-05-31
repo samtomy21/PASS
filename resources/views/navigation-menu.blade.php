@@ -26,7 +26,23 @@
                         </x-nav-link>
                     </div>
                 @endcan
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('usercheck.index') }}" :active="request()->routeIs('passes')">
+                            Firmados
+                        </x-nav-link>
+                    </div>
 
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('bosscheck.index') }}" :active="request()->routeIs('passes')">
+                            Firmados por Jefe
+                        </x-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('times.index') }}" :active="request()->routeIs('times')">
+                            Tiempos
+                        </x-nav-link>
+                    </div>
 
                 @can('charges.index')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

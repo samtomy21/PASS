@@ -9,6 +9,10 @@ use App\Http\Controllers\DependenceController;
 use App\Http\Controllers\TimeController;
 use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\UsercheckController;
+use App\Http\Controllers\BosscheckController;
+use App\Http\Controllers\RhcheckController;
+
 Route::get('/', function () {
     return view('home');
 });
@@ -32,6 +36,11 @@ Route::resource('times', TimeController::class)->middleware('auth');
 Route::get('passes.reporte', [PassController::class, 'reporte'])->middleware('auth')->name('passes.reporte');
 Route::get('passes/{id}/print', [PassController::class, 'print'])->middleware('auth')->name('passes.print');
 Route::get('passes/{id}/firmar', [PassController::class, 'firmar'])->middleware('auth')->name('passes.firmar');
+
+Route::get('usercheck', [UsercheckController::class, 'index'])->middleware('auth')->name('usercheck.index');
+Route::get('bosscheck', [BosscheckController::class, 'index'])->middleware('auth')->name('bosscheck.index');
+// Route::get('rhchecks', [RhcheckController::class, 'index'])->middleware('auth')->name('rhchecks.index');
+
 
 Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->middleware('auth');
 
