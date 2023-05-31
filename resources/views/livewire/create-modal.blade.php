@@ -35,7 +35,13 @@
                                 <input type="number" class="rounded py-1 w-full border-gray-400" name="estado">
 
                                 <label class="text-s font-semibold">Tiempo Autorizado:</label>
-                                <input type="time" class="rounded py-1 w-full border-gray-400" name="time">
+                                <select name="time_id" class="rounded py-1 w-full border-gray-400" name="estado">
+                                    @foreach ($times as $time)
+                                        <option value="{{ $time->id }}">{{ $time->time_permision }}</option>
+                                    @endforeach     
+                                </select>
+
+                                <!-- <input type="time" class="rounded py-1 w-full border-gray-400" name="time"> -->
 
                                 <label class="text-s font-semibold">Hora de Salida Registrada:</label>
                                 <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="input" value="00:00">

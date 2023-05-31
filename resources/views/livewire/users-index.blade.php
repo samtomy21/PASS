@@ -12,22 +12,22 @@
                 <table class="table-fixed min-w-full text-sm text-left text-gray-800">
                     <thead class="text-xs uppercase bg-gray-700 text-white">
                         <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>ncard</th>
-                            <th>Email</th>
-                            <th></th>
+                            <th class="px-1 py-2">ID</th>
+                            <th class="px-1 py-2">Nombre</th>
+                            <th class="px-1 py-2">ncard</th>
+                            <th class="px-1 py-2">Email</th>
+                            <th class="px-1 py-2">Opciones</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <td scope="col" class="px-1 py-1">{{ $user->id }}</td>
-                                <td scope="col" class="px-1 py-1">{{ $user->name }}</td>
-                                <td scope="col" class="px-1 py-1">{{ $user->ncard }}</td>
-                                <td scope="col" class="px-1 py-1">{{ $user->email }}</td>
-                                <td scope="col" class="px-1 py-1">
+                                <td scope="col" class="px-1 py-2">{{ $user->id }}</td>
+                                <td scope="col" class="px-1 py-2">{{ $user->name }}</td>
+                                <td scope="col" class="px-1 py-2">{{ $user->ncard }}</td>
+                                <td scope="col" class="px-1 py-2">{{ $user->email }}</td>
+                                <td scope="col" class="px-1 py-2">
                                     <a href="{{ route('users.edit', $user) }}" class="bg-yellow-500 text-white rounded px-2 py-1 mx-1">Editar</a>
                                 </td>
                             </tr>
