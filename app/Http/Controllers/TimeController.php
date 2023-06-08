@@ -8,7 +8,6 @@ class TimeController extends Controller
 {
     public function index(Request $request)
     {
-        
         return view('times.index',[
             'times' => Time::latest('id')->get(),
         ]);
@@ -27,7 +26,7 @@ class TimeController extends Controller
 
     public function edit(Request $request, Time $time)
     {
-        return view('charges.edit', compact('time'));
+        return view('times.edit', compact('time'));
     }
 
     public function update(Request $request, Time $time)

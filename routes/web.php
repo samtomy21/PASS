@@ -39,7 +39,7 @@ Route::get('passes/{id}/firmar', [PassController::class, 'firmar'])->middleware(
 
 Route::get('usercheck', [UsercheckController::class, 'index'])->middleware('auth')->name('usercheck.index');
 Route::get('bosscheck', [BosscheckController::class, 'index'])->middleware('auth')->name('bosscheck.index');
-// Route::get('rhchecks', [RhcheckController::class, 'index'])->middleware('auth')->name('rhchecks.index');
+Route::get('rhcheck', [RhcheckController::class, 'index'])->middleware('auth')->name('rhcheck.index');
 
 
 Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->middleware('auth');

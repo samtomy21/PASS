@@ -17,22 +17,22 @@
                 <thead class="text-xs text-white uppercase bg-gray-50 bg-gray-700 text-white">
                     <tr>
                         <th scope="col" class="px-6 py-3">ID</th>
-                        <th scope="col" class="px-6 py-3">Cargo</th>
+                        <th scope="col" class="px-6 py-3">Tiempo Autorizado</th>
                         <th scope="col" class="px-6 py-3 border-slate-200">Opciones</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @forelse($charges as $charge)
+                    @forelse($times as $time)
                     <tr class="bg-white border-b bg-white-800 border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap text-black">
-                            {{ $charge->id}}
+                            {{ $time->id }}
                         </th>
-                        <td class="px-6 py-4">{{ $charge->name_charge}}</td>
+                        <td class="px-6 py-4">{{ $time->time_permision}}</td>
 
                         <td class=" flex px-auto py-4">
-                            <a href="{{ route('charges.edit', $charge) }}" class="bg-blue-800 text-white rounded px-2 py-1 mx-1">Editar</a>
-                            <form action="charges/{{ $charge->id }}" method="POST">
+                            <a href="{{ route('times.edit', $time) }}" class="bg-blue-800 text-white rounded px-2 py-1 mx-1">Editar</a>
+                            <form action="times/{{ $time->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <input type="submit" class="bg-red-500 text-white rounded px-2 py-1 mx-1" value="Eliminar">
@@ -44,7 +44,7 @@
 
                     <tr class="bg-white border-b bg-white-800 dark:border-gray-700">
                         <td colspan="4">
-                            No hay Razones
+                            No hay Tiempos Creados
                         </td>
                     </tr>
 

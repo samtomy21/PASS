@@ -33,12 +33,12 @@
                             <label class="text-s font-semibold">Estado:</label>
                             <input type="number" class="rounded py-1 w-full border-gray-400" name="estado">
 
-                            <!-- <select name="" id="">
-                                foreach($times as $time)
-                                <option value="{{id}}">time_permision</option>
-                            </select> -->
-                            <!-- <label class="text-s font-semibold">Tiempo Autorizado:</label>
-                            <input type="time" class="rounded py-1 w-full border-gray-400" name="time"> -->
+                            <label class="text-s font-semibold">Tiempo Autorizado:</label>
+                            <select name="time_id" class="rounded py-1 w-full border-gray-400" >
+                                @foreach ($times as $time)
+                                    <option value="{{ $time->id }}">{{ $time->time_permision }}</option>
+                                @endforeach
+                            </select>
 
                             <label class="text-s font-semibold">Hora de Salida Registrada:</label>
                             <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="input" value="00:00">

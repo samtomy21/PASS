@@ -27,7 +27,7 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'ncard' => $this->faker->randomElement($array = array('0001', '0002')),
+            'ncard' => $this->faker->unique()->numberBetween($min = 0, $max = 1000 ),
             'charge_id' => rand(1,4),
             'dependence_id' => rand(1,27),
             'email_verified_at' => now(),

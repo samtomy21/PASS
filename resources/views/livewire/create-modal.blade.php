@@ -35,13 +35,11 @@
                                 <input type="number" class="rounded py-1 w-full border-gray-400" name="estado">
 
                                 <label class="text-s font-semibold">Tiempo Autorizado:</label>
-                                <select name="time_id" class="rounded py-1 w-full border-gray-400" name="estado">
+                                <select name="time_id" class="rounded py-1 w-full border-gray-400" >
                                     @foreach ($times as $time)
                                         <option value="{{ $time->id }}">{{ $time->time_permision }}</option>
-                                    @endforeach     
+                                    @endforeach
                                 </select>
-
-                                <!-- <input type="time" class="rounded py-1 w-full border-gray-400" name="time"> -->
 
                                 <label class="text-s font-semibold">Hora de Salida Registrada:</label>
                                 <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="input" value="00:00">
@@ -59,7 +57,7 @@
                         <div class="flex px-5 justify-between items-center pb-5">
                             <div class="w-1/2">
                                 <label class="text-s font-semibold">Fecha</label>
-                                <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date" value="{{ date('Y-m-d') }}">
+                                <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date" value="{{ $currentDate }}">
                             </div>
                             <div class="justify-end">
                                 <input type="submit" class="bg-green-600 text-white rounded px-4 py-1" value="Guardar">
@@ -72,5 +70,4 @@
         <x-slot name="footer">
         </x-slot>
     </x-dialog-modal>
-
 </div>

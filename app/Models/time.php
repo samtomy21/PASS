@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
 
-class time extends Model
+class Time extends Model
 {
     use HasFactory;
 

@@ -36,11 +36,12 @@ class PassController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
+    {
         $now = Carbon::now();
         $currentDate = $now->format('Y-m-d');
+        $times = Time::all();
 
-        return view('passes.create', compact('currentDate'));
+        return view('passes.create', compact('currentDate', 'times'));
     }
 
     /**
@@ -52,12 +53,12 @@ class PassController extends Controller
             'motive' => 'required',
             'place' => 'required',
             'estado' => 'required',
-            'time' => 'required',
+            'time_id' => 'required',
             'input' => 'required',
             'output' => 'required',
             'date' => 'required',
         ]);
-        
+
         $request->user()->passes()->create($request->all());
 
         return redirect()->route('passes.index');
@@ -87,7 +88,7 @@ class PassController extends Controller
             abort(403);
         }
 
-        return view('passes.index', compact('pass'));   
+        return view('passes.index', compact('pass'));
     }
 
     /**
@@ -98,7 +99,7 @@ class PassController extends Controller
         $request->validate([
             'motive' => 'required',
             'place' => 'required',
-            'time' => 'required',
+            'time_id' => 'required',
             'input' => 'required',
             'output' => 'required',
             'date' => 'required',
@@ -111,7 +112,7 @@ class PassController extends Controller
 
         $pass->update($request->all());
         return redirect()->route('passes.index', $pass);
-        
+
     }
 
     public function destroy(Request $request, Pass $pass)
@@ -122,7 +123,7 @@ class PassController extends Controller
         {
             abort(403);
         }
-        
+
         return redirect()->route('passes.index');
     }
 
@@ -139,16 +140,16 @@ class PassController extends Controller
         ]);
         return $pdf->stream();
     }
-    
+
     public function print(Request $request, Pass $pass)
-    {   
-        
+    {
+
         $pdf = PDF::loadview('passes.pdf', [
             'pass' => Pass::find($request->id)
         ]);
 
         return $pdf->stream();
-    
+
     }
 
     public function firmar(Request $request, Pass $pass)

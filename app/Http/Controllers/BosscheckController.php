@@ -4,13 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pass;
-use App\Models\Dependence;
+
+
 class BosscheckController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        // return view('bosschecks.index', [
-        //     // 'passes' => Pass::where(auth()->user()->dependence(), 2),
-        // ]);
+        $dep = $request->user()->dependence_id;
+
+        return view('bosschecks.index', [
+            'passes' => Pass::whereHas('user', function ($query) use ($dep){
+                        $query->where('dependence_id', $dep);
+                        })
+                        ->where('estado', 2)
+                        ->get(),
+        ] );
     }
 }

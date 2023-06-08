@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Pass;
+
 class RhcheckController extends Controller
 {
     public function index(){
 
         return view('userchecks.index', [
-             'passes' => auth()
-                         ->user()
-                         ->passes()
-                         ->where('estado', 3)
-                         ->get(),
+             'passes' => Pass::where('estado', 3)
+                        ->get(),
         ]);
      }
 }

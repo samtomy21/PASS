@@ -69,7 +69,7 @@
                             <td class="px-6 py-4">{{ $pass->user->dependence->name_dependence }}</td>
                             <td class="px-6 py-4">{{ $pass->motive }}</td>
                             <td class="px-6 py-4">{{ $pass->place }}</td>
-                            <td class="px-6 py-4">{{ $pass->time }}</td>
+                            <td class="px-6 py-4">{{ $pass->time->time_permision }}</td>
                             <td class="px-6 py-4">{{ $pass->input }}</td>
                             <td class="px-6 py-4">{{ $pass->output }}</td>
                             <td class="px-6 py-4">{{ $pass->date }}</td>

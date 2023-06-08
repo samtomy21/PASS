@@ -9,7 +9,7 @@
                         <img src="{{ asset('images/LOGO-GORE2.png') }}" class="h-12">
                     </a>
                 </div>
-                
+
                 <!-- Navigation Links -->
                 @can('users.index')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -35,6 +35,12 @@
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('bosscheck.index') }}" :active="request()->routeIs('passes')">
                             Firmados por Jefe
+                        </x-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('rhcheck.index') }}" :active="request()->routeIs('passes')">
+                            Firmados por RRHH
                         </x-nav-link>
                     </div>
 
