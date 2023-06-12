@@ -70,6 +70,23 @@
     font-family: "Montserrat";
     font-weight:700;
 }
-.prueba{
-    color: red;
+
+.main{
+    display: flex;
+}
+
+.dato {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.dato label {
+    font-weight: bold;
+}
+
+.dato-contenido {
+    /* width: 40%; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
 }
