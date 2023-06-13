@@ -8,8 +8,8 @@
         </x-slot>
         <x-slot name="content">
             <div class="w-full">
-                <div class="flex max-w-7xl mx-auto py-3">
-                    <div class="bg-white pt-5 px-4 overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="flex max-w-7xl mx-auto">
+                    <div class="bg-white px-4 overflow-hidden shadow-xl sm:rounded-lg">
                         <form action="{{ route('passes.update', $pass) }}" method="POST">
                             @csrf
                             @method('PUT')

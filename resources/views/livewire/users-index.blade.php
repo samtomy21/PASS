@@ -3,7 +3,7 @@
     <div>
         <!-- search -->
         <div class="m-2">
-            <input wire:model="search" type="text" class="rounded" placeholder="Ingrese Nombre o email">
+            <input wire:model="search" type="text" class="rounded w-full md:w-1/2" placeholder="Ingrese Nombre o email">
         </div>
 
         @if($users->count())
@@ -11,19 +11,19 @@
             <div class="relative overflow-x-auto bg-white rounded-lg">
                 <table class="table-fixed min-w-full text-sm text-left text-gray-800">
                     <thead class="text-xs uppercase bg-gray-700 text-white">
-                        <tr>
-                            <th class="px-1 py-2">ID</th>
-                            <th class="px-1 py-2">Nombre</th>
-                            <th class="px-1 py-2">ncard</th>
-                            <th class="px-1 py-2">Email</th>
-                            <th class="px-1 py-2">Opciones</th>
+                        <tr class="align-center">
+                            <th scope="col" class="px-2 py-2">ID</th>
+                            <th scope="col" class="px-1 py-2">Nombre</th>
+                            <th scope="col" class="px-1 py-2">ncard</th>
+                            <th scope="col" class="px-1 py-2">Email</th>
+                            <th scope="col" class="px-1 py-2">Opciones</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <td scope="col" class="px-1 py-2">{{ $user->id }}</td>
+                                <td scope="col" class="px-2 py-2">{{ $user->id }}</td>
                                 <td scope="col" class="px-1 py-2">{{ $user->name }}</td>
                                 <td scope="col" class="px-1 py-2">{{ $user->ncard }}</td>
                                 <td scope="col" class="px-1 py-2">{{ $user->email }}</td>

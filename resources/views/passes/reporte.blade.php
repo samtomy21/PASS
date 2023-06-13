@@ -25,36 +25,36 @@
     </div>
 
     <div>
-        <table>
+        <table class="tabla">
             <thead>
                 <tr>
-                    <th scope="col" class="px-4 py-3">Id</th>
-                    <th scope="col" class="px-4 py-3">N° Targeta</th>
-                    <th scope="col" class="px-4 py-3">Nombre</th>
-                    <th scope="col" class="px-4 py-3">Cargo</th>
-                    <th scope="col" class="px-4 py-3">Dependencia</th>
-                    <th scope="col" class="px-4 py-3">Motivo</th>
-                    <th scope="col" class="px-4 py-3">Lugar</th>
-                    <th scope="col" class="px-4 py-3">Tiempo Autorizado</th>
-                    <th scope="col" class="px-4 py-3">Hora de Salida</th>
-                    <th scope="col" class="px-4 py-3">Hora de Llegada</th>
-                    <th scope="col" class="px-4 py-3">Fecha</th>
+                    <th scope="col" class="encabezado py-2">Id</th>
+                    <th scope="col" class="encabezado py-2">N° Targeta</th>
+                    <th scope="col" class="encabezado py-2">Nombre</th>
+                    <th scope="col" class="encabezado py-2">Cargo</th>
+                    <th scope="col" class="encabezado py-2">Dependencia</th>
+                    <th scope="col" class="encabezado py-2">Motivo</th>
+                    <th scope="col" class="encabezado py-2">Lugar</th>
+                    <th scope="col" class="encabezado py-2">Tiempo Autorizado</th>
+                    <th scope="col" class="encabezado py-2">Hora de Salida</th>
+                    <th scope="col" class="encabezado py-2">Hora de Llegada</th>
+                    <th scope="col" class="encabezado py-2">Fecha</th>
                 </tr>
             </thead>
                 <tbody>
                     @forelse($passes as $pass)
                     <tr>
-                        <td scope="row">{{ $pass->id }}</td>
-                        <td class="px-6 py-4">{{ $pass->user->ncard }}</td>
-                        <td class="px-6 py-4">{{ $pass->user->name }}</td>
-                        <td class="px-6 py-4">{{ $pass->user->charge->name_charge }}</td>
-                        <td class="px-6 py-4">{{ $pass->user->dependence->name_dependence }}</td>
-                        <td class="px-6 py-4">{{ $pass->motive }}</td>
-                        <td class="px-6 py-4">{{ $pass->place }}</td>
-                        <td class="px-6 py-4">{{ $pass->time }}</td>
-                        <td class="px-6 py-4">{{ $pass->input }}</td>
-                        <td class="px-6 py-4">{{ $pass->output }}</td>
-                        <td class="px-6 py-4">{{ $pass->date }}</td>
+                        <td scope="row" class="fila">{{ $pass->id }}</td>
+                        <td class="fila py-2">{{ $pass->user->ncard }}</td>
+                        <td class="fila py-2">{{ $pass->user->name }}</td>
+                        <td class="fila py-2">{{ $pass->user->charge->name_charge }}</td>
+                        <td class="fila py-2">{{ $pass->user->dependence->name_dependence }}</td>
+                        <td class="fila py-2">{{ $pass->motive }}</td>
+                        <td class="fila py-2">{{ $pass->place }}</td>
+                        <td class="fila py-2">{{ $pass->time->time_permision }}</td>
+                        <td class="fila py-2">{{ $pass->input }}</td>
+                        <td class="fila py-2">{{ $pass->output }}</td>
+                        <td class="fila py-2">{{ $pass->date }}</td>
                 </tr>
                 @empty
                 <tr>

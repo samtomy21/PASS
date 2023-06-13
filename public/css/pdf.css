@@ -41,6 +41,7 @@
 #footer{
     position: fixed;
     bottom: -1.5cm;
+    margin: 0;
     left: 0cm;
     width: 100%;
     background-color: rgb(58, 131, 195);
@@ -48,6 +49,7 @@
 
 .textfooter{
     text-align: center;
+    text-transform: uppercase;
     width: 100%;
 }
 
@@ -89,4 +91,20 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.encabezado {
+    background-color: rgb(58, 131, 195);
+    padding: 10px;
+    text-align: left;
+}
+
+.fila {
+    padding: 10px;
+    border-bottom: 1px solid rgb(100, 100, 241);
 }
