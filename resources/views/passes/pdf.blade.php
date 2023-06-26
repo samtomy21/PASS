@@ -30,12 +30,10 @@
         <div class="dato">
             <label>Nombre:</label>
             <div class="dato-contenido">{{ $pass->user->name }}</div>
-        </div>
-        <div class="dato">
+            
             <label>Codigo de Personal:</label>
             <div class="dato-contenido">{{ $pass->user->ncard }}</div>
-        </div>
-        <div class="dato">
+            
             <label>Cargo:</label>
             <div class="dato-contenido">{{ $pass->user->charge->name_charge }}</div>
         </div>
@@ -46,28 +44,24 @@
         <div class="dato">
             <label>Motivo de salida:</label>
             <div class="dato-contenido">{{ $pass->motive }}</div>
-        </div>
-        <div class="dato">
+
             <label>Lugar:</label>
             <div class="dato-contenido">{{ $pass->place }}</div>
         </div>
         <div class="dato">
             <label>Tiempo autorizado:</label>
             <div class="dato-contenido">{{ $pass->time->time_permision }}</div>
-        </div>
-        <div class="dato">
-            <label>Hora de Salida Registrada:</label>
+        
+            <label>Hora de Salida:</label>
             <div class="dato-contenido">{{ $pass->input }}</div>
-        </div>
-        <div class="dato">
-            <label>Hora de ingreso registros:</label>
+        
+            <label>Hora de ingreso:</label>
             <div class="dato-contenido">{{ $pass->output }}</div>
         </div>
         <div class="dato">
             <label>Fecha:</label>
             <div class="dato-contenido">{{ $pass->date }}</div>
-        </div>
-        <div class="dato">
+        
             <label>Observaciones:</label>
             <div class="dato-contenido">{{ $pass->observation }}</div>
         </div>
