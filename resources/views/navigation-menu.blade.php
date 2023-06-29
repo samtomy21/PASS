@@ -45,6 +45,12 @@
                     </div>
 
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('hours.index')}}" :active="request()->routeIs('passes')">
+                            Asignar Salida
+                        </x-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('times.index') }}" :active="request()->routeIs('times')">
                             Tiempos
                         </x-nav-link>

@@ -10,9 +10,19 @@ class RhcheckController extends Controller
 {
     public function index(){
 
-        return view('userchecks.index', [
+        return view('rhchecks.index', [
              'passes' => Pass::where('estado', 3)
                         ->get(),
         ]);
-     }
+    }
+
+    public function firmarRh(Request $request, Pass $pass)
+    {
+        $sign = Pass::find($request->id);
+        $firm = $sign->estado + 1;
+        $sign->estado = $firm;
+        $sign->save();
+
+        return redirect()->route('rhcheck.index');
+    }
 }

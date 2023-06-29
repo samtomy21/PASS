@@ -13,24 +13,21 @@ return new class extends Migration
     {
         Schema::create('passes', function (Blueprint $table) {
             $table->id();
- 
+
 
             $table->unsignedBigInteger('user_id');
 
             $table->string('motive');
             $table->string('place');
-            $table->string('observation');
             $table->smallInteger('estado')->defaault(0);
             $table->unsignedBigInteger('time_id');
-            $table->time('input');
-            $table->time('output');
             $table->dateTimeTz('date');
 
             $table->timestamps();
 
-
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('time_id')->references('id')->on('times');
+
 
         });
     }

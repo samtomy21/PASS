@@ -46,8 +46,6 @@
                             <th scope="col" class="px-4 py-3">Motivo</th>
                             <th scope="col" class="px-4 py-3">Lugar</th>
                             <th scope="col" class="px-4 py-3">Tiempo Autorizado</th>
-                            <th scope="col" class="px-4 py-3">Hora de Salida</th>
-                            <th scope="col" class="px-4 py-3">Hora de Llegada</th>
                             <th scope="col" class="px-4 py-3">Fecha</th>
                             <th scope="col" class="px-4 py-3">Estado</th>
                             <th scope="col" class="px-4 py-3 border-slate-200">Opciones</th>
@@ -70,13 +68,10 @@
                             <td class="px-6 py-4">{{ $pass->motive }}</td>
                             <td class="px-6 py-4">{{ $pass->place }}</td>
                             <td class="px-6 py-4">{{ $pass->time->time_permision }}</td>
-                            <td class="px-6 py-4">{{ $pass->input }}</td>
-                            <td class="px-6 py-4">{{ $pass->output }}</td>
                             <td class="px-6 py-4">{{ $pass->date }}</td>
                             <td class="px-6 py-4">{{ $pass->estado }}</td>
-                            <!-- <td class="px-6 py-4">{{ $pass->observation }}</td> -->
                             <td class="flex px-auto py-4 mb-2 items-center">
-                                <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1">Firmar</a>
+                                <a href="{{ route('passes.firmarboss', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1">Firmar</a>
                                 @livewire('edit-modal', ['pass' => $pass], key($pass->id))
                                 <form action="{{ route('passes.destroy', $pass) }}" method="POST">  <!--onsubmit="return confirm('{{ trans('Estas seguro que desea eliminar? ') }}'); "> -->
                                     @csrf

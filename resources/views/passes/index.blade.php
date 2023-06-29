@@ -23,8 +23,16 @@
 
         <div class="max-w-7xl">
             <p class="flex mb-4 mx-5 mt-1 rounded text-left">
-                <a href="#" id="deleteAllSelectedRecord" class="bg-red-500 text-white font-bold py-1 px-4 rounded">
+                <a href="#" id="deleteAllSelectedRecord" class="bg-red-900 text-white font-bold py-1 px-4 rounded">
                     Eliminar Seleccionados
+                </a>
+            </p>
+        </div>
+
+        <div class="max-w-7xl">
+            <p class="flex mb-4 mx-5 mt-1 rounded text-left">
+                <a href="#" id="deleteAllSelectedRecord" class="bg-sky-500 text-white font-bold py-1 px-4 rounded">
+                    Firmar Seleccionados
                 </a>
             </p>
         </div>
@@ -46,8 +54,6 @@
                             <th scope="col" class="px-1 py-2">Motivo</th>
                             <th scope="col" class="px-1 py-2">Lugar</th>
                             <th scope="col" class="px-1 py-2">Tiempo Autorizado</th>
-                            <th scope="col" class="px-1 py-2">Hora de Salida</th>
-                            <th scope="col" class="px-1 py-2">Hora de Llegada</th>
                             <th scope="col" class="px-1 py-2">Fecha</th>
                             <th scope="col" class="px-1 py-2">Estado</th>
                             <th scope="col" class="px-1 py-2">Opciones</th>
@@ -70,11 +76,8 @@
                             <td class="py-2">{{ $pass->motive }}</td>
                             <td class="py-2">{{ $pass->place }}</td>
                             <td class="py-2">{{ $pass->time->time_permision }}</td>
-                            <td class="py-2">{{ $pass->input }}</td>
-                            <td class="py-2">{{ $pass->output }}</td>
                             <td class="py-2">{{ $pass->date }}</td>
                             <td class="py-2">{{ $pass->estado }}</td>
-                            <!-- <td class="px-6 py-4">{{ $pass->observation }}</td> -->
                             <td class="flex px-auto py-4 mb-2 items-center">
                                 <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1">Firmar</a>
                                 @livewire('edit-modal', ['pass' => $pass], key($pass->id))
@@ -103,6 +106,29 @@
 
             $("#select_all_ids").click(function(){
                 $('.checkbox_ids').prop('checked', $(this).prop('checked'));
+            });
+
+            $('#firmarAllSelectedRecord').click(function(e){
+
+                e.preventDefault();
+                var all_ids = [];
+                $('input:checkbox[name=ids]:checked').each(function(){
+                    all_ids.push($(this).val());
+                });
+
+                $.ajax({
+                    url:"{{ route('passes.firmarAll') }}",
+                    type:"GET",
+                    data:{
+                        ids:all_ids,
+                        _token:'{{ csrf_token() }}'
+                    },
+                    success:function(response){
+                        $.each(all_ids, function(key,val){
+                            $('#pass_ids'+val).remove();
+                        })
+                    }
+                });
             });
 
             $('#deleteAllSelectedRecord').click(function(e){

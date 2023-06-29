@@ -54,8 +54,6 @@ class PassController extends Controller
             'place' => 'required',
             'estado' => 'required',
             'time_id' => 'required',
-            'input' => 'required',
-            'output' => 'required',
             'date' => 'required',
         ]);
 
@@ -100,8 +98,6 @@ class PassController extends Controller
             'motive' => 'required',
             'place' => 'required',
             'time_id' => 'required',
-            'input' => 'required',
-            'output' => 'required',
             'date' => 'required',
         ]);
 
@@ -131,6 +127,12 @@ class PassController extends Controller
         $ids = $request->ids;
         Pass::whereIn('id', $ids)->delete();
         return response()->json(["success" => "Las Papeletas de Permisos han sido Eliminados!"]);
+    }
+
+    public function firmarAll(Request $request){
+        $ids = $request->ids;
+        Pass::whereIn('id', $ids)->firmar();
+        return response()->json(["success" => "Las Papeletas de Permisos han sido firmadas!"]);
     }
 
     public function reporte(Request $request)

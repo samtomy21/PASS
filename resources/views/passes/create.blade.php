@@ -40,16 +40,16 @@
                                 @endforeach
                             </select>
 
-                            <label class="text-s font-semibold">Hora de Salida Registrada:</label>
+                            <!-- <label class="text-s font-semibold">Hora de Salida Registrada:</label>
                             <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="input" value="00:00">
 
                             <label class="text-s font-semibold">Hora de ingreso registros:</label>
-                            <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="output" value="00:00">
+                            <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="output" value="00:00"> -->
                         </div>
-                        <div class="container">
+                        <!-- <div class="container">
                             <label class="text-s font-semibold">Observaciones:</label>
                             <textarea name="observation" class="rounded py-1 w-full border-gray-400" id="" cols="20" rows="6" type="text"></textarea>
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>

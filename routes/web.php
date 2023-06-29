@@ -12,7 +12,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsercheckController;
 use App\Http\Controllers\BosscheckController;
 use App\Http\Controllers\RhcheckController;
-
+use App\Http\Controllers\HourController;
+use App\Http\Controllers\DepartureTimeController;
+use App\Http\Controllers\ReturnTimeController;
 Route::get('/', function () {
     return view('home');
 });
@@ -29,6 +31,7 @@ Route::middleware([
 
 Route::resource('passes', PassController::class)->middleware('auth');
 Route::delete('passes.deleteAll', [PassController::class, 'deleteAll'])->name('passes.deleteAll')->middleware('auth');
+Route::delete('passes.firmarAll', [PassController::class, 'firmarAll'])->name('passes.firmarAll')->middleware('auth');
 Route::resource('charges', ChargeController::class)->middleware('auth');
 Route::resource('dependences', DependenceController::class)->middleware('auth');
 Route::resource('times', TimeController::class)->middleware('auth');
@@ -36,10 +39,20 @@ Route::resource('times', TimeController::class)->middleware('auth');
 Route::get('passes.reporte', [PassController::class, 'reporte'])->middleware('auth')->name('passes.reporte');
 Route::get('passes/{id}/print', [PassController::class, 'print'])->middleware('auth')->name('passes.print');
 Route::get('passes/{id}/firmar', [PassController::class, 'firmar'])->middleware('auth')->name('passes.firmar');
+Route::get('passes/{id}/firmaruser', [UsercheckController::class, 'firmarUser'])->middleware('auth')->name('passes.firmaruser');
+Route::get('passes/{id}/firmarboss', [BosscheckController::class, 'firmarBoss'])->middleware('auth')->name('passes.firmarboss');
+Route::get('passes/{id}/firmarrh', [RhcheckController::class, 'firmarRh'])->middleware('auth')->name('passes.firmarrh');
 
 Route::get('usercheck', [UsercheckController::class, 'index'])->middleware('auth')->name('usercheck.index');
 Route::get('bosscheck', [BosscheckController::class, 'index'])->middleware('auth')->name('bosscheck.index');
 Route::get('rhcheck', [RhcheckController::class, 'index'])->middleware('auth')->name('rhcheck.index');
+
+Route::get('hours', [HourController::class, 'index'])->middleware('auth')->name('hours.index');
+//Route::get('hours/{id}/asignarHora', [HourController::class, 'asignarhora'])->middleware('auth')->name('hours.asignarHora');
+
+Route::get('hours/{id}/asignarHoraSalida', [DepartureTimeController::class, 'assign_departure_time'])->middleware('auth')->name('hours.asignarHoraSalida');
+Route::get('hours/{id}/asignarHoraRetorno', [ReturnTimeController::class, 'assing_return_time'])->middleware('auth')->name('hours.asignarHoraRetorno');
+Route::post('hours/horaRetornoStore', [ReturnTimeController::class, 'return_hour_store'])->middleware('auth')->name('hours.store');
 
 
 Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->middleware('auth');

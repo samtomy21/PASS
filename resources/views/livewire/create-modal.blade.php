@@ -41,15 +41,11 @@
                                     @endforeach
                                 </select>
 
-                                <label class="text-s font-semibold">Hora de Salida Registrada:</label>
+                                <!-- <label class="text-s font-semibold">Hora de Salida Registrada:</label>
                                 <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="input" value="00:00">
 
                                 <label class="text-s font-semibold">Hora de ingreso registros:</label>
-                                <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="output" value="00:00">
-                            </div>
-                            <div class="container">
-                                <label class="text-s font-semibold">Observaciones:</label>
-                                <textarea name="observation" class="rounded py-1 w-full border-gray-400" id="" cols="20" rows="6" type="text"></textarea>
+                                <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="output" value="00:00"> -->
                             </div>
 
                         </div>

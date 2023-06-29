@@ -20,4 +20,14 @@ class BosscheckController extends Controller
                         ->get(),
         ] );
     }
+
+    public function firmarBoss(Request $request, Pass $pass)
+    {
+        $sign = Pass::find($request->id);
+        $firm = $sign->estado + 1;
+        $sign->estado = $firm;
+        $sign->save();
+
+        return redirect()->route('bosscheck.index');
+    }
 }
