@@ -68,15 +68,18 @@
                             <td class="px-6 py-4">{{ $pass->motive }}</td>
                             <td class="px-6 py-4">{{ $pass->place }}</td>
                             <td class="px-6 py-4">{{ $pass->time->time_permision }}</td>
+                            <td class="px-6 py-4">{{ $pass->input }}</td>
+                            <td class="px-6 py-4">{{ $pass->output }}</td>
                             <td class="px-6 py-4">{{ $pass->date }}</td>
                             <td class="px-6 py-4">{{ $pass->estado }}</td>
+                            <!-- <td class="px-6 py-4">{{ $pass->observation }}</td> -->
                             <td class="flex px-auto py-4 mb-2 items-center">
-                                <a href="{{ route('passes.firmarboss', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1">Firmar</a>
+                                <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1">Firmar</a>
                                 @livewire('edit-modal', ['pass' => $pass], key($pass->id))
                                 <form action="{{ route('passes.destroy', $pass) }}" method="POST">  <!--onsubmit="return confirm('{{ trans('Estas seguro que desea eliminar? ') }}'); "> -->
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="bg-red-500 text-white rounded px-2 py-1 mx-1" value="Eliminar">
+                                    <input type="submit" class="bg-red-500 text-white rounded px-2 py-1 mx-1 my-3 md:mt-3" value="Eliminar">
                                 </form>
                             </td>
 

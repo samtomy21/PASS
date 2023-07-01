@@ -14,7 +14,7 @@
         <img class="imgheader" src="{{ public_path('images/LOGO-GORE.png') }}" height="100" width="100">
 
         <div class="infoheader">
-            <h3>GOBIERNO REGIONAL DE PUNO</h3>
+            <h3>GOBIERNO REGIONAL DE PUNO - este es del edit</h3>
             <h4>Sistema de Papeletas de Salida - PASS</h4>
         </div>
     </div>
@@ -26,25 +26,47 @@
         </div>
     </div>
 
-    <div>
-        <div class="prueba">
-            <label>Nombre: </label>{{ $pass->user->name }}
-            <label>Codigo de Personal: </label>{{ $pass->user->ncard }}
-            <label>Cargo: </label>{{ $pass->user->charge->name_charge }}
-            <label>Dependencia: </label>{{ $pass->user->dependence->name_dependence }}
-            <label>Motivo de salida: </label>{{ $pass->motive }}
+    <div class="main">
+        <div class="dato">
+            <label>Nombre:</label>
+            <div class="dato-contenido">{{ $pass->user->name }}</div>
+            
+            <label>Codigo de Personal:</label>
+            <div class="dato-contenido">{{ $pass->user->ncard }}</div>
+            
+            <label>Cargo:</label>
+            <div class="dato-contenido">{{ $pass->user->charge->name_charge }}</div>
         </div>
-        <div>
-            <label>Lugar: </label>{{ $pass->place }}
-            <label>Tiempo autorizado: </label>{{ $pass->time }}
-            <label>Hora de Salida Registrada: </label>{{ $pass->input }}
-            <label>Hora de ingreso registros: </label>{{ $pass->output }}
-            <label>Fecha: </label>{{ $pass->date }}
+        <div class="dato">
+            <label>Dependencia:</label>
+            <div class="dato-contenido">{{ $pass->user->dependence->name_dependence }}</div>
         </div>
-        <div>
-            <label>Observaciones: </label>{{ $pass->observation }}
+        <div class="dato">
+            <label>Motivo de salida:</label>
+            <div class="dato-contenido">{{ $pass->motive }}</div>
+
+            <label>Lugar:</label>
+            <div class="dato-contenido">{{ $pass->place }}</div>
+        </div>
+        <div class="dato">
+            <label>Tiempo autorizado:</label>
+            <div class="dato-contenido">{{ $pass->time->time_permision }}</div>
+        
+            <label>Hora de Salida:</label>
+            <div class="dato-contenido">{{ $pass->input }}</div>
+        
+            <label>Hora de ingreso:</label>
+            <div class="dato-contenido">{{ $pass->output }}</div>
+        </div>
+        <div class="dato">
+            <label>Fecha:</label>
+            <div class="dato-contenido">{{ $pass->date }}</div>
+        
+            <label>Observaciones:</label>
+            <div class="dato-contenido">{{ $pass->observation }}</div>
         </div>
     </div>
+
 
 </body>
 

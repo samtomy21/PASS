@@ -77,14 +77,31 @@
                             <td class="py-2">{{ $pass->place }}</td>
                             <td class="py-2">{{ $pass->time->time_permision }}</td>
                             <td class="py-2">{{ $pass->date }}</td>
+                            <td class="py-2">
+                                <div class=" flex justify-center items-center">
+                                    @if ($pass->estado === 3)
+                                        <span class="inline-block h-4 w-4 rounded-full bg-green-500"></span>
+                                    @elseif ($pass->estado === 2)
+                                        <span class="inline-block h-4 w-4 rounded-full bg-blue-500"></span>
+                                    @elseif ($pass->estado === 1)
+                                        <span class="inline-block h-4 w-4 rounded-full bg-yellow-500"></span>
+                                    @elseif ($pass->estado === 0)
+                                        <span class="inline-block h-4 w-4 rounded-full bg-red-500"></span>
+                                    @endif
+                                </div>
+                            </td>
+                            <!-- <td class="px-6 py-4">{{ $pass->observation }}</td> -->
+                            <td class="flex px-auto py-5 mb-2 justify-center items-center flex-col text-center md:flex-row">
+                                <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1 my-auto md:mt-3 mb-3">Firmar</a>
                             <td class="py-2">{{ $pass->estado }}</td>
                             <td class="flex px-auto py-4 mb-2 items-center">
                                 <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1">Firmar</a>
                                 @livewire('edit-modal', ['pass' => $pass], key($pass->id))
-                                <form action="{{ route('passes.destroy', $pass) }}" method="POST">  <!--onsubmit="return confirm('{{ trans('Estas seguro que desea eliminar? ') }}'); "> -->
+                                <form action="{{ route('passes.destroy', $pass) }}" method="POST"> <!-- onsubmit=" return confirm('{{ trans('Estas seguro que desea eliminar? ') }}') "> -->
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="bg-red-500 text-white rounded px-2 py-1 mx-1" value="Eliminar">
+                                    <!-- <input type="submit" class="bg-red-500 text-white rounded px-2 py-1 mx-1 my-3 md:mt-3" value="Eliminar"> -->
+                                    <button type="submit" class="bg-red-500 text-gray-50 p-1 rounded mx-1">Eliminar</button>
                                 </form>
                             </td>
 

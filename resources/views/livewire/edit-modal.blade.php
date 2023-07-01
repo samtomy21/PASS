@@ -1,61 +1,65 @@
 <div>
     <!-- <x-buttonR wire:click="$set('open', true)"> -->
-        <a href="#" class="bg-blue-800 text-white rounded px-2 py-1.5" wire:click="$set('open', true)">Editar</a>
+    <a href="#" class="bg-blue-800 text-white rounded px-2 py-1.5" wire:click="$set('open', true)">Editar</a>
     <!-- </x-buttonR> -->
-    <x-dialog-modal wire:model="open">
-
+    <x-dialog-modal wire:model="open" class="w-auto">
         <x-slot name="title">
             Papeleta {{ $pass->id }}
         </x-slot>
         <x-slot name="content">
-        <div class="max-w-7xl mx-auto py-5">
-            <div class="bg-white pt-5 px-4 overflow-hidden shadow-xl sm:rounded-lg">
-                <form action="{{ route('passes.update', $pass) }}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <label class="text-s font-semibold">Motivo de Salida:</label>
-                    <input type="text" class="rounded py-1 w-full border-gray-400" name="motive" value="{{ $pass->motive }}">
+            <div class="w-full">
+                <div class="flex max-w-7xl mx-auto">
+                    <div class="bg-white px-4 overflow-hidden shadow-xl sm:rounded-lg">
+                        <form action="{{ route('passes.update', $pass) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <label class="text-s font-semibold">Motivo de Salida:</label>
+                            <input type="text" class="rounded py-1 w-full border-gray-400" name="motive" value="{{ $pass->motive }}">
 
-                    <label class="text-s font-semibold">Lugar de Salida:</label>
-                    <input type="text" class="rounded py-1 w-full border-gray-400" name="place" value="{{ $pass->place }}">
+                            <label class="text-s font-semibold">Lugar de Salida:</label>
+                            <input type="text" class="rounded py-1 w-full border-gray-400" name="place" value="{{ $pass->place }}">
 
-                    <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
-                    <div class="container px-5 gap-5 md:flex md:w-full">
-                        <div class="container w-full">
-                            <label class="text-s font-semibold">Tiempo Autorizado:</label>
-                            <input type="time" class="rounded py-1 w-full border-gray-400" name="time" value="{{ $pass->time }}">
+                            <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
+                            <div class="container px-5 gap-5 md:flex md:w-full">
+                                <div class="container w-full">
+                                    <label class="text-s font-semibold">Tiempo Autorizado:</label>
+                                    <input type="time" class="rounded py-1 w-full border-gray-400" name="time" value="{{ $pass->time }}">
 
-                            <!-- <label class="text-s font-semibold">Hora de Salida Registrada:</label>
-                            <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="input" value="{{ $pass->input}}">
+                                    <label class="text-s font-semibold">Hora de Salida Registrada:</label>
+                                    <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="input" value="{{ $pass->input}}">
 
-                            <label class="text-s font-semibold">Hora de ingreso registros:</label>
-                            <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="output" value="{{ $pass->output }}"> -->
+                                    <label class="text-s font-semibold">Hora de ingreso registros:</label>
+                                    <input type="time" class="rounded py-1 w-full border-gray-400 text-gray-500" name="output" value="{{ $pass->output }}">
 
                             <label class="text-s font-semibold">Estado:</label>
                             <input type="number" class="rounded py-1 w-full border-gray-400 text-gray-500" name="estado" value="{{ $pass->estado }}">
                         </div>
-                        <!-- <div class="container">
+                        <div class="container">
                             <label class="text-s font-semibold">Observaciones:</label>
                             <textarea name="observation" class="rounded py-1 w-full border-gray-400" id="" cols="20" rows="6" type="text">{{ $pass->motive }}</textarea>
-                        </div> -->
+                        </div>
 
+                            </div>
+                            <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
+                            <div class="flex px-5 justify-between items-center pb-5">
+                                <div class="w-1/2">
+                                    <label class="text-s font-semibold">Fecha</label>
+                                    <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date" value="{{ date('d-m-Y') }}">
+                                </div>
+                                <div class="justify-end">
+                                    <input type="submit" class="bg-green-600 text-white rounded px-4 py-1" value="Guardar">
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
-                    <div class="flex px-5 justify-between items-center pb-5">
-                        <div class="w-1/2">
-                            <label class="text-s font-semibold">Fecha</label>
-                            <input type="date" class="md:rounded py-1 w-1/2 border-gray-400" name="date" value="{{ date('d-m-Y') }}">
-                        </div>
-                        <div class="justify-end">
-                            <input type="submit" class="bg-green-600 text-white rounded px-4 py-1" value="Guardar">
-                        </div>
+                    <div class="flex w-1/2">
+                        <iframe src="" frameborder="0"></iframe>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
         </x-slot>
         <x-slot name="footer">
-        <a href="{{ route('passes.print', $pass) }}" class="bg-yellow-500 text-white rounded px-2 py-1 mx-1">Imprimir</a>
+            <a href="{{ route('passes.print', $pass) }}" class="bg-yellow-500 text-white rounded px-2 py-1">Imprimir</a>
         </x-slot>
     </x-dialog-modal>
 

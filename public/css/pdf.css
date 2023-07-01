@@ -41,6 +41,7 @@
 #footer{
     position: fixed;
     bottom: -1.5cm;
+    margin: 0;
     left: 0cm;
     width: 100%;
     background-color: rgb(58, 131, 195);
@@ -48,6 +49,7 @@
 
 .textfooter{
     text-align: center;
+    text-transform: uppercase;
     width: 100%;
 }
 
@@ -70,6 +72,42 @@
     font-family: "Montserrat";
     font-weight:700;
 }
-.prueba{
-    color: red;
+
+.main{
+    display: flex;
+}
+
+.dato {
+    display: flex;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.dato label {
+    font-weight: bold;
+}
+
+.dato-contenido {
+    /* width: 40%; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+    display: inline;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.encabezado {
+    background-color: rgb(58, 131, 195);
+    padding: 10px;
+    text-align: left;
+}
+
+.fila {
+    padding: 10px;
+    border-bottom: 1px solid rgb(100, 100, 241);
 }

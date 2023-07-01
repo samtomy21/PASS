@@ -7,6 +7,9 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-24 lg:px-24">
+            <!-- <div class="text-gray-800">
+                <h1>hola</h1>
+            </div> -->
             <div class="bg-white pt-5 px-4 overflow-hidden shadow-xl sm:rounded-lg">
                 <form action="{{ route('passes.update', $pass) }}" method="POST">
                     @csrf

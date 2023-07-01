@@ -46,6 +46,8 @@
                             <th scope="col" class="px-4 py-3">Motivo</th>
                             <th scope="col" class="px-4 py-3">Lugar</th>
                             <th scope="col" class="px-4 py-3">Tiempo Autorizado</th>
+                            <th scope="col" class="px-4 py-3">Hora de Salida</th>
+                            <th scope="col" class="px-4 py-3">Hora de Llegada</th>
                             <th scope="col" class="px-4 py-3">Fecha</th>
                             <th scope="col" class="px-4 py-3">Estado</th>
                             <th scope="col" class="px-4 py-3 border-slate-200">Opciones</th>
@@ -60,6 +62,33 @@
                             <td class="px-2 py-2">
                                 <input type="checkbox" class="checkbox_ids rounded" name="ids" value="{{ $pass->id }}">
                             </td>
+                            <td scope="row" class="px-2 py-2 font-medium text-gray-700 whitespace-nowrap">{{ $pass->id }}</td>
+                            <td class="py-2">{{ $pass->user->ncard }}</td>
+                            <td class="py-2">{{ $pass->user->name }}</td>
+                            <td class="py-2">{{ $pass->user->charge->name_charge }}</td>
+                            <td class="py-2">{{ $pass->user->dependence->name_dependence }}</td>
+                            <td class="py-2">{{ $pass->motive }}</td>
+                            <td class="py-2">{{ $pass->place }}</td>
+                            <td class="py-2">{{ $pass->time->time_permision }}</td>
+                            <td class="py-2">{{ $pass->input }}</td>
+                            <td class="py-2">{{ $pass->output }}</td>
+                            <td class="py-2">{{ $pass->date }}</td>
+                            <td class="py-2">
+                                <div class=" flex justify-center items-center">
+                                    @if ($pass->estado === 3)
+                                        <span class="inline-block h-4 w-4 rounded-full bg-green-500"></span>
+                                    @elseif ($pass->estado === 2)
+                                        <span class="inline-block h-4 w-4 rounded-full bg-blue-500"></span>
+                                    @elseif ($pass->estado === 1)
+                                        <span class="inline-block h-4 w-4 rounded-full bg-yellow-500"></span>
+                                    @elseif ($pass->estado === 0)
+                                        <span class="inline-block h-4 w-4 rounded-full bg-red-500"></span>
+                                    @endif
+                                </div>
+                            </td>
+                            <!-- <td class="px-6 py-4">{{ $pass->observation }}</td> -->
+                            <td class="flex px-auto py-5 mb-2 justify-center items-center flex-col text-center md:flex-row">
+                                <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1 my-auto md:mt-3 mb-3">Firmar</a>
                             <td scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">{{ $pass->id }}</td>
                             <td class="px-6 py-4">{{ $pass->user->ncard }}</td>
                             <td class="px-6 py-4">{{ $pass->user->name }}</td>
@@ -76,14 +105,14 @@
                                 <form action="{{ route('passes.destroy', $pass) }}" method="POST">  <!--onsubmit="return confirm('{{ trans('Estas seguro que desea eliminar? ') }}'); "> -->
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="bg-red-500 text-white rounded px-2 py-1 mx-1" value="Eliminar">
+                                    <input type="submit" class="bg-red-500 text-gray-50 p-1 rounded mx-1" value="Eliminar">
                                 </form>
                             </td>
 
                         </tr>
                         @empty
                         <tr class="bg-white border-b bg-white-800 dark:border-gray-700">
-                            <td colspan="13">No has creado ningun permiso</td>
+                            <td colspan="13">No se tiene ningun permiso</td>
                         </tr>
                         @endforelse
                     </tbody>
