@@ -21,7 +21,7 @@ class PassFactory extends Factory
 
             'motive' => $this->faker->sentence(),
             'place' => $this->faker->secondaryAddress(),
-            'estado' => $this->faker->numberBetween($min = 0, $max = 4),
+            'estado' => $this->faker->numberBetween($min = 0, $max = 3),
             'time_id' => rand(1,9),
             'date' => $this->faker->date(),
 

@@ -31,8 +31,6 @@
                         <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
                         <div class="container px-5 gap-5 md:flex md:w-full">
                             <div class="container w-full">
-                                <label class="text-s font-semibold">Estado:</label>
-                                <input type="number" class="rounded py-1 w-full border-gray-400" name="estado">
 
                                 <label class="text-s font-semibold">Tiempo Autorizado:</label>
                                 <select name="time_id" class="rounded py-1 w-full border-gray-400" >

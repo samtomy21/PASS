@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            SEGUIMIENTO DE PAPELETAS
+            CREAR Y VALIDAR NUEVOS PASES DE SALIDA
         </h2>
     </x-slot>
 
@@ -11,18 +11,8 @@
                 Nuevo Registro
             </a> -->
 
+            @livewire('create-modal')
 
-            <p class="mb-4 mx-5 mt-5 rounded text-left m-4">
-
-                <a href="{{ route('passes.reporte') }}" class="bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded">
-                    Imprimir
-                </a>
-            </p>
-
-        </div>
-
-        <div class="m-2">
-            <input wire:model="search" type="text" class="rounded w-full md:w-1/2" placeholder="Ingrese Nombre o email">
         </div>
 
 
@@ -40,6 +30,7 @@
                             <th scope="col" class="px-1 py-2">Tiempo Autorizado</th>
                             <th scope="col" class="px-1 py-2">Fecha</th>
                             <th scope="col" class="px-1 py-2">Estado</th>
+                            <th scope="col" class="px-1 py-2">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,7 +58,22 @@
                                     @endif
                                 </div>
                             </td >
-
+                            <td class="flex px-auto py-5 mb-2 justify-center items-center flex-col text-center md:flex-row">
+                                <!-- <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1 my-auto md:mt-3 mb-3">Firmar</a> -->
+                                @if ($pass->estado > 0)
+                                    <span class="bg-gray-400 text-white rounded px-2 py-1 mx-1 my-auto md:mt-3 mb-3">Firmar</span>
+                                @else
+                                    <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1 my-auto md:mt-3 mb-3">Firmar</a>
+                                @endif
+                                @livewire('edit-modal', ['pass' => $pass], key($pass->id))
+                                <form action="{{ route('passes.destroy', $pass) }}" method="POST"> <!-- onsubmit=" return confirm('{{ trans('Estas seguro que desea eliminar? ') }}') "> -->
+                                    @csrf
+                                    @method('DELETE')
+                                    <!-- <input type="submit" class="bg-red-500 text-white rounded px-2 py-1 mx-1 my-3 md:mt-3" value="Eliminar"> -->
+                                    <button type="submit" class="bg-red-500 text-gray-50 p-1 rounded mx-1">Eliminar</button>
+                                </form>
+                                <a href="{{ route('passes.show', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1 my-auto md:mt-3 mb-3">Ver</a>
+                            </td>
                         </tr>
                         @empty
                         <tr class="bg-white border-b bg-white-800 dark:border-gray-700">
@@ -80,3 +86,4 @@
         </div>
     </div>
 </x-app-layout>
+

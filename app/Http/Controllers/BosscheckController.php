@@ -16,7 +16,7 @@ class BosscheckController extends Controller
             'passes' => Pass::whereHas('user', function ($query) use ($dep){
                         $query->where('dependence_id', $dep);
                         })
-                        ->where('estado', 2)
+                        ->where('estado', 1)
                         ->get(),
         ] );
     }
@@ -26,6 +26,16 @@ class BosscheckController extends Controller
         $sign = Pass::find($request->id);
         $firm = $sign->estado + 1;
         $sign->estado = $firm;
+        $sign->save();
+
+        return redirect()->route('bosscheck.index');
+    }
+
+    public function corregirBoss(Request $request, Pass $pass)
+    {
+        $sign = Pass::find($request->id);
+        $correct = $sign->estado - 1 ;
+        $sign->estado = $correct;
         $sign->save();
 
         return redirect()->route('bosscheck.index');

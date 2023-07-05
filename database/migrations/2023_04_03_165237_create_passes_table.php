@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->string('motive');
             $table->string('place');
-            $table->smallInteger('estado')->defaault(0);
+            $table->smallInteger('estado')->default(0);
             $table->unsignedBigInteger('time_id');
             $table->dateTimeTz('date');
 

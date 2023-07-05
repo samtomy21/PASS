@@ -11,7 +11,7 @@ class RhcheckController extends Controller
     public function index(){
 
         return view('rhchecks.index', [
-             'passes' => Pass::where('estado', 3)
+             'passes' => Pass::where('estado', 2)
                         ->get(),
         ]);
     }

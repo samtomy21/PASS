@@ -27,7 +27,6 @@ class PassController extends Controller
             'passes' => auth()
                         ->user()
                         ->passes()
-                        ->where('estado',0)
                         ->get(),
         ]);
     }
@@ -52,14 +51,13 @@ class PassController extends Controller
         $request->validate([
             'motive' => 'required',
             'place' => 'required',
-            'estado' => 'required',
             'time_id' => 'required',
             'date' => 'required',
         ]);
 
         $request->user()->passes()->create($request->all());
 
-        return redirect()->route('passes.index');
+        return redirect()->route('usernocheck.index');
     }
 
     /**
@@ -107,7 +105,7 @@ class PassController extends Controller
         }
 
         $pass->update($request->all());
-        return redirect()->route('passes.index', $pass);
+        return redirect()->route('usernocheck.index', $pass);
 
     }
 
@@ -120,7 +118,7 @@ class PassController extends Controller
             abort(403);
         }
 
-        return redirect()->route('passes.index');
+        return redirect()->route('usernocheck.index');
     }
 
     public function deleteAll(Request $request){
@@ -129,11 +127,6 @@ class PassController extends Controller
         return response()->json(["success" => "Las Papeletas de Permisos han sido Eliminados!"]);
     }
 
-    public function firmarAll(Request $request){
-        $ids = $request->ids;
-        Pass::whereIn('id', $ids)->firmar();
-        return response()->json(["success" => "Las Papeletas de Permisos han sido firmadas!"]);
-    }
 
     public function reporte(Request $request)
     {
@@ -161,6 +154,6 @@ class PassController extends Controller
         $sign->estado = $firm;
         $sign->save();
 
-        return redirect()->route('passes.index');
+        return redirect()->route('usernocheck.index');
     }
 }
