@@ -46,7 +46,9 @@
                             <td class="py-2">{{ $pass->date }}</td>
                             <td class="py-2">
                             <div class=" flex justify-center items-center">
-                                    @if ($pass->estado === 3)
+                                    @if ($pass->estado === 4)
+                                        <div class="inline-block text-white text-center text-xs px-1 rounded bg-gray-400">Archivado</div>
+                                    @elseif ($pass->estado === 3)
                                         <div class="inline-block text-white text-center text-xs px-1 rounded bg-green-400">Firmado por RRHH</div>
                                     @elseif ($pass->estado === 2)
                                         <div class="inline-block text-white text-center text-xs px-1 rounded bg-blue-400">Firmado por Jefe</div>
