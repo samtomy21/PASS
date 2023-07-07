@@ -76,19 +76,28 @@
                             <td class="py-2">
                                 <div class=" flex justify-center items-center">
                                     @if ($pass->estado === 3)
-                                        <span class="inline-block h-4 w-4 rounded-full bg-green-500"></span>
+                                    <!-- <span class="inline-block h-4 w-4 rounded-full bg-green-500"></span> -->
+                                        <div class="inline-block rounded text-white bg-green-500">Firmado RRHH</div>
                                     @elseif ($pass->estado === 2)
-                                        <span class="inline-block h-4 w-4 rounded-full bg-blue-500"></span>
+                                    <!-- <span class="inline-block h-4 w-4 rounded-full bg-blue-500"></span> -->
+                                        <div class="inline-block rounded text-white bg-blue-500">Firmado por jefe</div>
                                     @elseif ($pass->estado === 1)
-                                        <span class="inline-block h-4 w-4 rounded-full bg-yellow-500"></span>
+                                        <!-- <span class="inline-block h-4 w-4 rounded-full bg-yellow-500"></span> -->
+                                        <div class="inline-block rounded text-white bg-yellow-500">Firmado</div>
                                     @elseif ($pass->estado === 0)
-                                        <span class="inline-block h-4 w-4 rounded-full bg-red-500"></span>
+                                        <!-- <span class="inline-block rounded-full bg-red-500">Firmado por RRHH</span> -->
+                                        <div class="inline-block rounded text-white bg-red-500">No Firmado</div>
                                     @endif
                                 </div>
                             </td>
                             <!-- <td class="px-6 py-4">{{ $pass->observation }}</td> -->
                             <td class="flex px-auto py-5 mb-2 justify-center items-center flex-col text-center md:flex-row">
-                                <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1 my-auto md:mt-3 mb-3">Firmar</a>
+                                <!-- <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1 my-auto md:mt-3 mb-3">Firmar</a> -->
+                                @if ($pass->estado > 0)
+                                    <span class="bg-gray-400 text-white rounded px-2 py-1 mx-1 my-auto md:mt-3 mb-3">Firmar</span>
+                                @else
+                                    <a href="{{ route('passes.firmar', $pass) }}" class="bg-sky-900 text-white rounded px-2 py-1 mx-1 my-auto md:mt-3 mb-3">Firmar</a>
+                                @endif
                                 @livewire('edit-modal', ['pass' => $pass], key($pass->id))
                                 <form action="{{ route('passes.destroy', $pass) }}" method="POST"> <!-- onsubmit=" return confirm('{{ trans('Estas seguro que desea eliminar? ') }}') "> -->
                                     @csrf
