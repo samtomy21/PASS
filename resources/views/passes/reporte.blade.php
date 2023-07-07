@@ -10,7 +10,7 @@
 <body>
     <div id="header">
         <img class="imgheader" src="{{ public_path('images/LOGO-GORE.png') }}" height="100" width="100">
-        
+
         <div class="infoheader">
             <h3>GOBIERNO REGIONAL DE PUNO</h3>
             <h4>Sistema de Papeletas de Salida - PASS</h4>
@@ -36,8 +36,7 @@
                     <th scope="col" class="encabezado py-2">Motivo</th>
                     <th scope="col" class="encabezado py-2">Lugar</th>
                     <th scope="col" class="encabezado py-2">Tiempo Autorizado</th>
-                    <th scope="col" class="encabezado py-2">Hora de Salida</th>
-                    <th scope="col" class="encabezado py-2">Hora de Llegada</th>
+                    <th scope="col" class="encabezado py-2">Estado</th>
                     <th scope="col" class="encabezado py-2">Fecha</th>
                 </tr>
             </thead>
@@ -52,8 +51,19 @@
                         <td class="fila py-2">{{ $pass->motive }}</td>
                         <td class="fila py-2">{{ $pass->place }}</td>
                         <td class="fila py-2">{{ $pass->time->time_permision }}</td>
-                        <td class="fila py-2">{{ $pass->input }}</td>
-                        <td class="fila py-2">{{ $pass->output }}</td>
+                        <td class="fila py-2">
+                                <div class=" flex justify-center items-center">
+                                    @if ($pass->estado === 3)
+                                        <div class="green">Firmado por RRHH</div>
+                                    @elseif ($pass->estado === 2)
+                                        <div class="blue">Firmado por Jefe</div>
+                                    @elseif ($pass->estado === 1)
+                                        <div class="yellow">Firmado por Usted</div>
+                                    @elseif ($pass->estado === 0)
+                                        <div class="red">Sin firmar</div>
+                                    @endif
+                                </div>
+                            </td >
                         <td class="fila py-2">{{ $pass->date }}</td>
                 </tr>
                 @empty

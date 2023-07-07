@@ -3,26 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 use App\Models\Pass;
-
-class RhcheckController extends Controller
+use App\Models\Hour;
+class HourController extends Controller
 {
     public function index(){
 
-        return view('rhchecks.index', [
-             'passes' => Pass::where('estado', 2)
+        return view('hours.index', [
+            'passes' => Pass::where('estado', 3)
                         ->get(),
         ]);
     }
+    public function archivar(Request $request, Pass $pass){
 
-    public function firmarRh(Request $request, Pass $pass)
-    {
         $sign = Pass::find($request->id);
         $firm = $sign->estado + 1;
         $sign->estado = $firm;
         $sign->save();
 
-        return redirect()->route('rhcheck.index');
+        return redirect()->route('hours.index');
     }
+
+
 }

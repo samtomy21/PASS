@@ -111,3 +111,23 @@
     padding: 10px;
     border-bottom: 1px solid rgb(100, 100, 241);
 }
+.yellow {
+    background-color: rgb(241, 241, 109);
+    border-radius: 5px;
+    color:black;
+}
+.red {
+    background-color: rgb(241, 123, 123);
+    border-radius: 5px;
+    color:black;
+}
+.blue {
+    background-color: rgb(102, 102, 243);
+    border-radius: 5px;
+    color:black;
+}
+.green {
+    background-color: rgb(95, 243, 95);
+    border-radius: 5px;
+    color:black;
+}
