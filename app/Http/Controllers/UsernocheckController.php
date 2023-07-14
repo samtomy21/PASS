@@ -12,7 +12,7 @@ class UsernocheckController extends Controller
                         ->user()
                         ->passes()
                         ->where('estado',0)
-                        ->get(),
+                        ->paginate(5),
         ]);
     }
 }

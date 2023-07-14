@@ -78,6 +78,7 @@
                         @endforelse
                     </tbody>
                 </table>
+                {{ $passes->links() }}
             </div>
         </div>
     </div>

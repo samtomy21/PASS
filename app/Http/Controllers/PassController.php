@@ -27,7 +27,7 @@ class PassController extends Controller
             'passes' => auth()
                         ->user()
                         ->passes()
-                        ->get(),
+                        ->paginate(5),
         ]);
     }
 

@@ -12,7 +12,7 @@ class RhcheckController extends Controller
 
         return view('rhchecks.index', [
              'passes' => Pass::where('estado', 2)
-                        ->get(),
+                        ->paginate(5),
         ]);
     }
 
