@@ -20,7 +20,7 @@ class ArchivedController extends Controller
         return view('archived.show', compact('pass'));
     }
 
-    public function reporte(Request $request)
+    public function reporte()
     {
         $passes = Pass::where('estado', 4)->get();
         $pdf = PDF::setPaper('a4', 'landscape')->loadview('passes.reporte',compact('passes'));

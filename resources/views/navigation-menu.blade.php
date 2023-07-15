@@ -4,12 +4,13 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('images/LOGO-GORE2.png') }}" class="h-12">
-                    </a>
-                </div>
-
+                @can('dashboard')
+                    <div class="shrink-0 flex items-center">
+                        <a href="{{ route('dashboard') }}">
+                            <img src="{{ asset('images/LOGO-GORE2.png') }}" class="h-12">
+                        </a>
+                    </div>
+                @endcan
                 <!-- Navigation Links -->
                 @can('users.index')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -27,46 +28,69 @@
                     </div>
                 @endcan
 
+                @can('usernocheck.index')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('usernocheck.index') }}" :active="request()->routeIs('passes')">
                             Nuevos Pases
                         </x-nav-link>
                     </div>
+                @endcan
+
+                @can('usercheck.index')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('usercheck.index') }}" :active="request()->routeIs('passes')">
                             Firmados
                         </x-nav-link>
                     </div>
+                @endcan()
 
+                @can('bosscheck.index')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('bosscheck.index') }}" :active="request()->routeIs('passes')">
                             Firmados por Jefe
                         </x-nav-link>
                     </div>
+                @endcan
 
+                @can('firmarrh')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('rhcheck.index') }}" :active="request()->routeIs('passes')">
                             Firmados por RRHH
                         </x-nav-link>
                     </div>
+                @endcan
 
+                @can('hours.index')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('hours.index')}}" :active="request()->routeIs('passes')">
                             Marcar Hora
                         </x-nav-link>
                     </div>
+                @endcan
 
+                @can('passesadmin.index')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('passesadmin.index')}}" :active="request()->routeIs('passes')">
+                            Papeletas
+                        </x-nav-link>
+                    </div>
+                @endcan
+
+                @can('archived.index')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('archived.index')}}" :active="request()->routeIs('passes')">
                             Archivados
                         </x-nav-link>
                     </div>
+                @endcan
 
+                @can('times.index')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('times.index') }}" :active="request()->routeIs('times')">
                             Tiempos
                         </x-nav-link>
                     </div>
+                @endcan
 
                 @can('charges.index')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

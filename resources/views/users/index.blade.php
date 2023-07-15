@@ -11,7 +11,6 @@
 
                 @livewire('users-index')
 
-
             </div>
         </div>
     </div>

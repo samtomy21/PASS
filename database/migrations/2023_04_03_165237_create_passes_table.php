@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('place');
             $table->smallInteger('estado')->default(0);
             $table->unsignedBigInteger('time_id');
-            $table->dateTimeTz('date');
+            $table->date('date');
 
             $table->timestamps();
 

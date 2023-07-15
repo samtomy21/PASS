@@ -10,7 +10,7 @@
 
             <p class="mb-4 mx-5 mt-5 rounded text-left m-4">
 
-                <a href="{{ route('passes.reporte') }}" class="bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded">
+                <a href="{{ route('passesadmin.reporte') }}" class="bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded">
                     Imprimir
                 </a>
             </p>
@@ -18,6 +18,6 @@
         </div>
     </div>
 
-    @livewire('passes-index')
+    @livewire('passesadmin-index')
 
 </x-app-layout>

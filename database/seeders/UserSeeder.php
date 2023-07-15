@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'charge_id' => rand(1,4),
             'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
-        ])->assignRole('Admin');
+        ])->assignRole('Administrador');
 
         User::create([
             'name' => 'Brad Tyler Sanchez Mamani',
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             'charge_id' => rand(1,4),
             'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
-        ])->assignRole('Admin');
+        ])->assignRole('Empleado');
 
         User::create([
             'name' => 'Marcos Deniss Choque Castro',
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
             'charge_id' => rand(1,4),
             'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
-        ])->assignRole('Employee');
+        ])->assignRole('JefeOficina');
 
         User::create([
             'name' => 'Milton Jarata Quispe',
@@ -46,7 +46,16 @@ class UserSeeder extends Seeder
             'charge_id' => rand(1,4),
             'dependence_id' => rand(1,27),
             'password' => bcrypt('password'),
-        ])->assignRole('Employee');
+        ])->assignRole('JefeRrHh');
+
+        User::create([
+            'name' => 'Henry Denilson Huaralla Chipana',
+            'email' => 'Henry@hotmail.com',
+            'ncard' => '0005',
+            'charge_id' => rand(1,4),
+            'dependence_id' => rand(1,27),
+            'password' => bcrypt('password'),
+        ])->assignRole('Guardian');
 
         User::factory(70)->create();
 

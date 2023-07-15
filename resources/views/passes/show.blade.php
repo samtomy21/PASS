@@ -17,7 +17,7 @@
                 </div>
                 <div class="pl-2 w-72 text-gray-800">
                     <label class="block text-s font-semibold w-full">Lugar: </label>{{ $pass->place }}
-                    <label class="block text-s font-semibold w-full">Tiempo autorizado: </label>{{ $pass->time }}
+                    <label class="block text-s font-semibold w-full">Tiempo autorizado: </label>{{ $pass->time->time_permision }}
                     <label class="block text-s font-semibold w-full">Hora de Salida Registrada: </label>{{ $pass->input }}
                     <label class="block text-s font-semibold w-full">Hora de ingreso registros: </label>{{ $pass->output }}
                     <label class="block text-s font-semibold w-full">Fecha: </label>{{ $pass->date }}
