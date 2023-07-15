@@ -9,10 +9,9 @@ use Barryvdh\DomPDF\Facade\Pdf as PDF;
 class ArchivedController extends Controller
 {
     public function index(){
-        $passes =Pass::where('estado', 4)
-                ->paginate(5);
 
-        return view('archived.index', compact('passes'));
+
+        return view('archived.index',);
     }
 
     public function show(Request $request, Pass $pass){

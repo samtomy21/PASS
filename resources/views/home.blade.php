@@ -19,8 +19,8 @@
             <div class="w-full">
                 <div class="w-1/2 flex mt-12 border-2 border-gray-400 rounded-lg mx-auto">
                     <div class="flex flex-col space-y-5 py-16 mx-10">
-                        <a href="{{ route('login') }}" class="w-32 rounded-full text-xl text-gray-50 shadow-sm font-semibold pl-6 py-2 border border-gray-500 bg-principal hover:bg-white hover:text-principal">Login</a>
-                        <a href="{{ route('register') }}" class="w-32 rounded-full text-xl text-gray-50 shadow-sm font-semibold pl-6 py-2 border border-gray-500 bg-principal hover:bg-white hover:text-principal">Register</a>
+                        <a href="{{ route('login') }}" class="w-32 rounded-full text-xl text-gray-50 shadow-sm font-semibold pl-6 py-2 border border-gray-500 bg-principal hover:bg-white hover:text-principal">Ingresar</a>
+                        <a href="{{ route('register') }}" class="w-32 rounded-full text-xl text-gray-50 shadow-sm font-semibold pl-6 py-2 border border-gray-500 bg-principal hover:bg-white hover:text-principal">Regristro</a>
                     </div>
                     <div class="w-1/2 flex py-12">
                         <p class="text-gray-700 mx-auto">
@@ -30,7 +30,7 @@
                         </p>
                     </div>
                 </div>
-                
+
             </div>
         </main>
 </body>

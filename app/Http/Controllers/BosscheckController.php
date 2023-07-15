@@ -10,7 +10,8 @@ use App\Models\Pass;
 class BosscheckController extends Controller
 {
     public function index(Request $request){
-        return view('bosschecks.index',);
+
+        return view('bosschecks.index', compact('passes'));
     }
 
     public function firmarBoss(Request $request, Pass $pass)

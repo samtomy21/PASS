@@ -23,12 +23,7 @@ class PassController extends Controller
      */
     public function index(Request $request)
     {
-        return view('passes.index', [
-            'passes' => auth()
-                        ->user()
-                        ->passes()
-                        ->paginate(5),
-        ]);
+        return view('passes.index');
     }
 
     /**

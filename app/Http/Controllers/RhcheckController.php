@@ -10,10 +10,7 @@ class RhcheckController extends Controller
 {
     public function index(){
 
-        return view('rhchecks.index', [
-             'passes' => Pass::where('estado', 2)
-                        ->paginate(5),
-        ]);
+        return view('rhchecks.index');
     }
 
     public function firmarRh(Request $request, Pass $pass)
