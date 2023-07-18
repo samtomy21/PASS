@@ -31,7 +31,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', [ChartController::class, 'useChart1'])->name('dashboard');
-    Route::get('/dashboard', [ChartController::class, 'useChart2'])->name('dashboard');
+    //Route::get('/dashboard', [ChartController::class, 'useChart2'])->name('dashboard');
 });
 
 Route::resource('passes', PassController::class)->middleware('auth');

@@ -11,7 +11,7 @@ class HourController extends Controller
 {
     public function index(){
 
-        return view('hours.index',);
+        return view('hours.index');
     }
     public function archivar(Request $request, Pass $pass){
 
