@@ -13,6 +13,7 @@ class RhIndex extends Component
             $query->where('name', 'LIKE' , '%'.$this->search.'%');
             })
             ->where('estado', 2)
+            ->latest()
             ->paginate();
         return view('livewire.rh-index', compact('passes'));
     }

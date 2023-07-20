@@ -17,6 +17,7 @@ class PassesIndex extends Component
                         ->user()
                         ->passes()
                         ->where('motive', 'LIKE' , '%'.$this->search.'%')
+                        ->latest()
                         ->paginate(5),
         ]);
     }

@@ -13,8 +13,8 @@ class AdminController extends Controller
     }
     public function reporte()
     {
-        $passes = Pass::all();
-        $pdf = PDF::setPaper('a4', 'landscape')->loadview('passes.reporte',compact('passes'));
+        $passes = Pass::latest()->take(100)->get();;
+        $pdf = PDF::setPaper('a4', 'landscape')->loadview('admin.reporte',compact('passes'));
         return $pdf->stream();
     }
 }

@@ -11,7 +11,7 @@ class ArchivedController extends Controller
     public function index(){
 
 
-        return view('archived.index',);
+        return view('archived.index');
     }
 
     public function show(Request $request, Pass $pass){
@@ -22,14 +22,14 @@ class ArchivedController extends Controller
     public function reporte()
     {
         $passes = Pass::where('estado', 4)->get();
-        $pdf = PDF::setPaper('a4', 'landscape')->loadview('passes.reporte',compact('passes'));
+        $pdf = PDF::setPaper('a4', 'landscape')->loadview('archived.reporte',compact('passes'));
         return $pdf->stream();
     }
 
     public function print(Request $request, Pass $pass)
     {
 
-        $pdf = PDF::loadview('passes.pdf', [
+        $pdf = PDF::loadview('archived.pdf', [
             'pass' => Pass::find($request->id)
         ]);
 

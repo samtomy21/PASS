@@ -13,6 +13,7 @@ class ArchivedIndex extends Component
             $query->where('name', 'LIKE' , '%'.$this->search.'%');
             })
             ->where('estado', 4)
+            ->latest()
             ->paginate();
         return view('livewire.archived-index', compact('passes'));
     }

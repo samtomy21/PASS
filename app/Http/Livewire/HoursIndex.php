@@ -13,6 +13,7 @@ class HoursIndex extends Component
             $query->where('name', 'LIKE' , '%'.$this->search.'%');
             })
             ->where('estado', 3)
+            ->latest()
             ->paginate();
         return view('livewire.hours-index', compact('passes'));
     }

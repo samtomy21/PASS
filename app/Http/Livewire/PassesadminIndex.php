@@ -12,6 +12,7 @@ class PassesadminIndex extends Component
         $passes = Pass::whereHas('user', function ($query) {
             $query->where('name', 'LIKE' , '%'.$this->search.'%');
             })
+            ->latest()
             ->paginate();
         return view('livewire.passesadmin-index', compact('passes'));
     }

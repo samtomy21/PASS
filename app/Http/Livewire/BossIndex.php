@@ -18,6 +18,7 @@ class BossIndex extends Component
                 $query->where('dependence_id', $dep);
                 })
                 ->where('estado', 1)
+                ->latest()
                 ->paginate();
         return view('livewire.boss-index', compact('passes'));
     }
